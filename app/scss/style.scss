@@ -5,7 +5,55 @@
 @import "normalize";
 
 
-
+.header{
+  padding: 20px 0;
+  &__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__social-list{
+    margin-right: 54px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__menu-list{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+  }
+  &__menu-list__item{
+    &:not(:last-child){
+      margin-right: 40px;
+    }
+  }
+  &__menu-list__link{
+    transition: all .3s;
+    &:hover{
+      color: $btn-color;
+    }
+  }
+  &__logo{
+    width: 122px;
+    height: 53px;
+  }
+  &__right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__social-item{
+    &:not(:last-child){
+      margin-right: 10px;
+    }
+  }
+  &__social-img{
+    width: 24px;
+    height: 24px;
+  }
+}
 
 
 @import "media";
