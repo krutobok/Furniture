@@ -1,12 +1,14 @@
 @import "vars";
 @import "libs";
 @import "fonts";
-@import "global";
 @import "normalize";
+@import "global";
+
 
 
 .header{
   padding: 20px 0;
+  color: $main-color;
   &__inner{
     display: flex;
     justify-content: space-between;
@@ -16,6 +18,7 @@
     margin-right: 54px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   &__menu-list{
     display: flex;
@@ -23,6 +26,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 100%;
+    align-items: center;
   }
   &__menu-list__item{
     &:not(:last-child){
@@ -53,7 +57,82 @@
     width: 24px;
     height: 24px;
   }
+  &__social-link{
+    width: 24px;
+    height: 24px;
+    &:hover path{
+      fill: $main-color;
+    }
+  }
+  &__social-image__path{
+    transition: all .3s;
+    fill: $btn-color;
+  }
+  &__phone{
+    display: block;
+    padding-left: 29px;
+    position: relative;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 100%;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+      &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 22px;
+        height: 22px;
+        background-image: url('../images/phone-icon.svg');
+    }
+  }
 }
-
+.top-slider{
+  position: relative;
+  &__item{
+    padding-top: 120px;
+    min-height: 687px;
+    background-blend-mode: multiply;
+  }
+  &__title{
+    font-family: 'Lato', sans-serif;
+    max-width: 860px;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 120%;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  &__text{
+    margin-bottom: 50px;
+    max-width: 639px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 18px;
+    line-height: 150%;
+    &--3{
+      max-width: 537px;
+    }
+  }
+  &__inner{
+    text-align: center;
+  }
+  &__btn{
+    padding-right: 52px;
+    padding-left: 52px;
+  }
+  &__btn-box{
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+  }
+}
 
 @import "media";
