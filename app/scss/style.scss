@@ -87,14 +87,49 @@
         height: 22px;
         background-image: url('../images/phone-icon.svg');
     }
+    &::after{
+      content: '';
+      height: 2px;
+      position: absolute;
+      bottom: -5px;
+      left: 29px;
+      width: 0;
+      background-color: $main-color;
+      transition: all .5s;
+    }
+    &:hover{
+      &::after{
+        width: calc(100% - 29px);
+      }
+    }
   }
 }
 .top-slider{
+  overflow-x: hidden;
   position: relative;
+  &__content{
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+  }
+  &__content-inner{
+    overflow-x: hidden;
+    position: relative;
+    min-height: 687px;
+  }
+  &__wrapper{
+    position: absolute;
+    min-height: 687px;
+  }
   &__item{
     padding-top: 120px;
     min-height: 687px;
+    width: 100vw;
+    flex-shrink: 0;
     background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 0;
   }
   &__title{
     font-family: 'Lato', sans-serif;
@@ -116,6 +151,9 @@
     &--3{
       max-width: 537px;
     }
+    &--2{
+      max-width: 476px;
+    }
   }
   &__inner{
     text-align: center;
@@ -132,6 +170,65 @@
     transform: translateX(-50%);
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    height: 57px;
+    &::after{
+      content: '';
+      width: 100%;
+      max-width: 1200px;
+      left: 20px;
+      height: 1px;
+      position: absolute;
+      top: 0;
+      background-color: rgba(#fff, 0.4);
+    }
+  }
+  &__dot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    line-height: 100%;
+    color: #FFFFFF;
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    opacity: 0.3;
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+    transition: all .3s;
+    padding: 0;
+    margin: 0;
+    &:hover{
+      opacity: 1;
+    }
+    &.active{
+      opacity: 1;
+    }
+  }
+  &__dots{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  &__arrows{
+    display: grid;
+    gap: 25px;
+    grid-template-columns: 1fr 1fr;
+  }
+  &__arrow{
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    &:hover .top-slider__arrow-img path{
+      fill: $btn-color;
+    }
+  }
+  &__arrow-img path{
+    transition: all .3s;
   }
 }
 
