@@ -172,14 +172,30 @@
     justify-content: space-between;
     align-items: flex-end;
     height: 57px;
-    &::after{
+    &::after,
+    &::before{
       content: '';
-      width: 100%;
       max-width: 1200px;
       left: 20px;
       height: 1px;
       position: absolute;
       top: 0;
+    }
+    &::before{
+      width: 0;
+      z-index: 5;
+      background-color: rgba($btn-color, 0.8);
+      transition: width 0s;
+    }
+    &.active{
+      &::before{
+        width: 100%;
+        transition: width 6s;
+      }
+    }
+    &::after{
+      z-index: 4;
+      width: 100%;
       background-color: rgba(#fff, 0.4);
     }
   }
