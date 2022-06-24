@@ -30,12 +30,13 @@ function slider(sliderContent) {
             const elem = document.createElement('button')
             elem.classList.add('top-slider__dot')
             elem.textContent = i+1
-            if (items.length === i+1){
-                elem.dataset.id = 0
-            }
-            else{
-                elem.dataset.id = i+1
-            }
+            // if (items.length === i+1){
+            //     elem.dataset.id = 0
+            // }
+            // else{
+            //     elem.dataset.id = i+1
+            // }
+            elem.dataset.id = i+1
             dots.push(elem)
             dotsInner.append(elem)
         }
@@ -43,51 +44,60 @@ function slider(sliderContent) {
         dots.forEach(elem => {
             elem.addEventListener('click', ()=> {
                 let id = parseInt(elem.getAttribute('data-id'))
-                // let insideSlide = currentSlide
+                let insideSlide = currentSlide
                 // if (insideSlide === 0){
                 //     insideSlide = items.length
                 // }
-                if (id === 0 && currentSlide === items.length-1){
-                    id = items.length
-                }
-                if (id === items.length-1 && currentSlide === 0){
-                    id = -1
-                }
+                // if (id === 0 && currentSlide === items.length-1){
+                //     id = items.length
+                // }
+                // if (id === items.length-1 && currentSlide === 0){
+                //     id = -1
+                // }
 
                 // else if (id !== 0 && currentSlide === 0){
                 //     id = -id
                 // }
 
-                if (id > currentSlide){
-                    let counter = Math.abs(id - currentSlide)
-                    console.log('right')
-                    moveRight(counter)
-                }
-                else if (id < currentSlide){
-                    let counter = Math.abs(currentSlide - id)
-                    console.log('left')
-                    moveLeft(counter)
-                }
-                // if (id > insideSlide){
-                //     let counter = Math.abs(id - insideSlide)
+                // if (id > currentSlide){
+                //     let counter = Math.abs(id - currentSlide)
                 //     console.log('right')
                 //     moveRight(counter)
                 // }
-                // else if (id < insideSlide){
-                //     let counter = Math.abs(insideSlide - id)
+                // else if (id < currentSlide){
+                //     let counter = Math.abs(currentSlide - id)
                 //     console.log('left')
                 //     moveLeft(counter)
                 // }
+                if (id > insideSlide){
+                    let counter = Math.abs(id - insideSlide)
+                    console.log('right')
+                    console.log(counter)
+                    console.log('cur' + insideSlide)
+                    moveRight(counter)
+                }
+                else if (id < insideSlide){
+                    let counter = Math.abs(insideSlide - id)
+                    console.log(counter)
+                    console.log('cur' + insideSlide)
+                    console.log('left')
+                    moveLeft(counter)
+                }
             })
         })
     }
     function move(counter = 1) {
+        console.log(counter)
         if(slideCounter === -1){
             slideCounter = slideCounter + items.length
         }
         currentSlide = slideCounter % items.length
+        if (currentSlide === 0){
+            currentSlide = items.length
+        }
         setTimeout(()=> {
             slider.style.left = -sliderPos - (width + margin)*counter + 'px'
+            // items[(currentSlide+items.length-1)%items.length].style.order = '1'
             items[(currentSlide+items.length-1)%items.length].style.order = '1'
             if (isDots){
                 dots.forEach(elem => elem.classList.remove("active"))
@@ -97,19 +107,23 @@ function slider(sliderContent) {
                     dots[currentSlide-1].classList.add('active')
                 }
             }
-            for (let i = items.length-1; i > 0; i--){
+            for (let i = items.length - 1; i > 0; i--){
                 items[(currentSlide+i-1)%items.length].style.order = (i+2).toString()
             }
+            // for (let i = items.length - 1; i > 0; i--){
+            //     items[(currentSlide+i-2)%items.length].style.order = (i+2).toString()
+            // }
+            console.log('cur' + currentSlide)
         }, 500)
     }
     function moveRight(counter=1){
-        sliderPos = sliderPos - width - margin
+        sliderPos = sliderPos - (width + margin)*counter
         sliderInner.style.left = sliderPos + 'px'
         slideCounter += counter
         move(counter)
     }
     function moveLeft(counter=1){
-        sliderPos = sliderPos + width + margin
+        sliderPos = sliderPos + (width + margin)*counter
         sliderInner.style.left = sliderPos + 'px'
         slideCounter -= counter
         move(counter)
