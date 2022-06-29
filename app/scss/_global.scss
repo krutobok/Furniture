@@ -88,6 +88,11 @@ h6{
   font-size: 18px;
   line-height: 150%;
 }
+.text-18-semibold{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+}
 .text-16{
   font-weight: 500;
   font-size: 16px;
@@ -226,6 +231,9 @@ h6{
       background-color: #FFF;
       transform: translate(-50%, -50%);
     }
+    &:focus + .form-checkbox-span{
+      box-shadow: 0 0 0 2px $main-color;
+    }
   }
 }
 .form-style{
@@ -234,4 +242,15 @@ h6{
   overflow: hidden;
   position: absolute;
   clip: rect(0 0 0 0);
+}
+.number{
+  position: relative;
+  &::before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+  }
 }

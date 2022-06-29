@@ -255,17 +255,27 @@
 .directions{
   padding: 100px 0 140px 0;
   &__items{
-    //display: grid;
-    //grid-template-columns: repeat(3, 1fr);
     display: flex;
     justify-content: space-around;
     border-right: 1px solid rgba($main-color, 0.2);
     border-left: 1px solid rgba($main-color, 0.2);
+    counter-reset: work;
   }
   &__item{
     &:not(:first-child){
       padding-left: 30px;
       border-left: 1px solid rgba($main-color, 0.2);
+      &::before{
+        left: 30px;
+      }
+    }
+    position: relative;
+    padding-top: 84px;
+    &::before {
+      position: absolute;
+      counter-increment: work;
+      content: "0" counter(work);
+      color: rgba($main-color, 0.5);
     }
   }
   &__title{
@@ -406,7 +416,97 @@
     max-height: 720px;
   }
 }
-
+.stages{
+  color: $main-color;
+  padding: 140px 0;
+  &__inner{
+    padding-bottom: 100px;
+    border-bottom: 1px solid rgba($main-color, 0.2);
+  }
+  &__title{
+    margin-bottom: 80px;
+  }
+  &__list{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    counter-reset: listNumber;
+  }
+  &__item{
+    width: 240px;
+    position: relative;
+    padding-top: 95px;
+    &::before{
+      counter-increment: listNumber;
+      content: "0" counter(listNumber);
+      width: 60px;
+      height: 60px;
+      color: $main-bg-color;
+      border: 1px solid rgba($main-color, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__list-title{
+    margin-bottom: 15px;
+  }
+}
+.present{
+  background-color: $gray;
+  &-container{
+    max-width: 1120px;
+  }
+  &__inner{
+    display: flex;
+    justify-content: space-between;
+    padding: 100px 0;
+    align-items: center;
+  }
+  &__item{
+    text-align: center;
+    &--center{
+      max-width: 362px;
+      text-align: center;
+    }
+  }
+  &__title{
+    margin-bottom: 23px;
+  }
+  &__text{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135%;
+    color: rgba($main-color, 0.8);
+    margin-bottom: 40px;
+  }
+  &__btn{
+    padding: 22px 67px;
+  }
+  &__item-text{
+    color: $main-bg-color;
+    position: relative;
+    padding-left: 28px;
+    &::after{
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      content: '';
+      top: 0;
+      left: 0;
+      background-image: url('../images/present-svg.svg');
+    }
+  }
+  &__img{
+    height: auto;
+    width: auto;
+    max-width: 200px;
+    max-height: 135px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+}
 
 
 
