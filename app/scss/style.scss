@@ -463,8 +463,32 @@
     justify-content: space-between;
     padding: 100px 0;
     align-items: center;
+    max-width: 930px;
+    margin: 0 auto;
+    position: relative;
+    &::after, &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -80px;
+      height: 100%;
+      width: 482px;
+      border-left: 1px solid rgba($main-color, 0.1);
+      border-radius: 50% 0 0 50%;
+      //border-right-color: transparent;
+    }
+    &::after{
+      left: auto;
+      right: -80px;
+      border-left: none;
+      border-right: 1px solid rgba($main-color, 0.15);
+      border-radius: 0 50% 50% 0;
+    }
   }
   &__item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     &--center{
       max-width: 362px;
@@ -488,6 +512,7 @@
     color: $main-bg-color;
     position: relative;
     padding-left: 28px;
+    display: inline-block;
     &::after{
       position: absolute;
       width: 18px;
@@ -505,6 +530,81 @@
     max-height: 135px;
     display: inline-block;
     margin-bottom: 20px;
+  }
+}
+.partners{
+  background-color: #fff;
+  padding: 140px 0;
+  &__title{
+    margin-bottom: 60px;
+  }
+}
+.partners-slider{
+  overflow-x: hidden;
+  position: relative;
+  &__content{
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+  }
+  &__content-inner{
+    overflow-x: hidden;
+    position: relative;
+    min-height: 90px;
+    margin-bottom: 40px;
+  }
+  &__wrapper{
+    position: absolute;
+    min-height: 90px;
+  }
+  &__item-img{
+    height: 48px;
+    object-fit: contain;
+  }
+  &__item{
+    width: 285px;
+    display: flex;
+    height: 90px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba($main-color, 0.4);
+    margin-right: 20px;
+    filter: grayscale(1);
+    opacity: 0.5;
+    transition: filter .5s, opacity .5s;
+    &:hover{
+      filter: grayscale(0);
+      opacity: 1;
+      border: 1px solid rgba($main-color, 0.2);
+    }
+  }
+  &__arrow{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 1px solid $main-bg-color;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+    &--left{
+      transform: rotate(180deg);
+    }
+  }
+  &__arrows{
+    display: flex;
+    justify-content: space-between;
+    width: 130px;
+    margin: 0 auto;
+  }
+}
+.questions{
+  &__img-box{
+    max-height: 663px;
+  }
+  &__input--2{
+    margin-bottom: 40px;
   }
 }
 

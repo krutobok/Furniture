@@ -6,8 +6,9 @@ function slider(sliderContent) {
     const slider = document.querySelector(sliderContent)
     const sliderInner = slider.closest('[data-slider="wrapper"]')
     const parentBlock =   slider.closest('[data-slider="parent-block"]')
-    sliderInner.style.transition = 'all .5s'
+    sliderInner.style.transition = 'left .5s'
     let items = slider.children
+    console.log(items)
     let width = window.getComputedStyle(items[0]).getPropertyValue('width')
     width = parseInt(width.substring(0, width.length-2))
     let margin = window.getComputedStyle(items[0]).getPropertyValue('margin-right')
@@ -34,6 +35,9 @@ function slider(sliderContent) {
     let time
     if (parentBlock.getAttribute('data-dots') === 'true'){
         isDots = true
+    }
+    else{
+        isDots = false
     }
     if (parentBlock.hasAttribute('data-autoplay')){
         isAutoplay = true
@@ -81,15 +85,16 @@ function slider(sliderContent) {
             currentSlide = items.length
         }
         setTimeout(()=> {
-            slider.style.left = -sliderPos - (width + margin) + 'px'
             items[(currentSlide+items.length-1)%items.length].style.order = '1'
+            for (let i = items.length - 1; i > 0; i--){
+                items[(currentSlide+i-1)%items.length].style.order = (i+2).toString()
+            }
+            slider.style.left = -sliderPos - (width + margin) + 'px'
             if (isDots){
                 dots.forEach(elem => elem.classList.remove("active"))
                 dots[currentSlide-1].classList.add('active')
             }
-            for (let i = items.length - 1; i > 0; i--){
-                items[(currentSlide+i-1)%items.length].style.order = (i+2).toString()
-            }
+
             console.log('cur' + currentSlide)
             if (currentLeft > 0){
                 currentLeft--
@@ -170,3 +175,4 @@ function slider(sliderContent) {
     }
 }
 slider('.top-slider__content')
+slider('.partners-slider__content')
