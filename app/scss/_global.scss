@@ -102,6 +102,12 @@ h6{
 .form{
   display: flex;
   flex-direction: column;
+  &-change{
+    display: block;
+    &.active{
+      display: none;
+    }
+  }
   &-section{
     background-color: $main-bg-color;
     display: flex;
@@ -326,5 +332,11 @@ h6{
     &::after{
       width: calc(100% - 29px);
     }
+  }
+}
+.form-thanked{
+  display: none;
+  &.active{
+    display: block;
   }
 }

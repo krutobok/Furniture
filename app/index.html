@@ -185,9 +185,9 @@
         <section class="discuss form-section">
                 <div class="form-content discuss__content">
                     <h2 class="title discuss__title form-title">Обговоримо <br> ваш проект?</h2>
-                    <div class="form-change discuss__change">
+                    <div class="form-change discuss__change" data-form="change">
                         <p class="form-text discuss__text text-16">Заповніть форму і найближчим часом ми зв'яжемося з вами!</p>
-                        <form class="discuss__form form">
+                        <form class="discuss__form form" data-form="thank">
                             <input type="text" class="form-input discuss__input text-16" placeholder="Ім'я">
                             <input type="tel" class="form-input discuss__input text-16" placeholder="Номер телефону">
                             <label class="form-file-label discuss__file-label">
@@ -324,9 +324,9 @@
         <section class="questions form-section">
             <div class="form-content questions__content">
                 <h2 class="title questions__title form-title">Залишилися <br>  питання?</h2>
-                <div class="form-change questions__change">
+                <div class="form-change questions__change" data-form="change">
                     <p class="form-text questions__text text-16">Отримай безкоштовну консультацію менеджера та прорахунок проекту </p>
-                    <form class="discuss__form form">
+                    <form class="discuss__form form" data-form="thank">
                         <input type="text" class="form-input questions__input text-16" placeholder="Ім'я">
                         <input type="tel" class="form-input questions__input questions__input--2 text-16" placeholder="Номер телефону">
                         <button class="form-btn questions__btn btn" type="submit">Відправити</button>
@@ -336,6 +336,10 @@
                             Даю згоду на оброблення персональних даних
                         </label>
                     </form>
+                </div>
+                <div class="form-thanked questions__thanked">
+                    <h5 class="form-thanked__title questions__thanked-title">Дякуємо, що звернулися до нас!</h5>
+                    <p class="form-thanked__text questions__-thanked-text">Наш менеджер зв'яжеться з вами протягом години.</p>
                 </div>
             </div>
             <div class="form-img-box questions__img-box">

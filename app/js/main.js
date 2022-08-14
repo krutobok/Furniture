@@ -252,8 +252,12 @@ function modal(){
 }
 modal()
 
+const formBtn = [].slice.call(document.querySelectorAll('form[data-form="thank"]'))
 
 
+function formThank() {
+
+}
 
 
 
