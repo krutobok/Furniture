@@ -48,64 +48,6 @@
     justify-content: space-between;
     align-items: center;
   }
-  &__social-item{
-    display: flex;
-    align-items: center;
-    &:not(:last-child){
-      margin-right: 10px;
-    }
-  }
-  &__social-img{
-    width: 24px;
-    height: 24px;
-  }
-  &__social-link{
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    &:hover path{
-      fill: $main-color;
-    }
-  }
-  &__social-image__path{
-    transition: all .3s;
-    fill: $btn-color;
-  }
-  &__phone{
-    display: block;
-    padding-left: 29px;
-    position: relative;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 100%;
-    font-family: 'Lato', sans-serif;
-    text-transform: uppercase;
-      &::before{
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 22px;
-        height: 22px;
-        background-image: url('../images/phone-icon.svg');
-    }
-    &::after{
-      content: '';
-      height: 2px;
-      position: absolute;
-      bottom: -5px;
-      left: 29px;
-      width: 0;
-      background-color: $main-color;
-      transition: all .5s;
-    }
-    &:hover{
-      &::after{
-        width: calc(100% - 29px);
-      }
-    }
-  }
 }
 .top-slider{
   overflow-x: hidden;
@@ -560,6 +502,7 @@
   &__item-img{
     height: 48px;
     object-fit: contain;
+    pointer-events: none;
   }
   &__item{
     width: 285px;
@@ -605,6 +548,229 @@
   }
   &__input--2{
     margin-bottom: 40px;
+  }
+}
+.footer{
+  padding: 105px 0 40px 0;
+  color: $main-color;
+  &__top{
+    padding-bottom: 100px;
+    border-bottom: 1px solid rgba($main-color, 0.2);
+  }
+  &__top-inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  &__logo-link{
+    margin-bottom: 27px;
+    display: inline-block;
+  }
+  &__social{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__social-list{
+    display: flex;
+  }
+  &__social-item:not(:last-child) {
+    margin-right: 7px;
+  }
+  &__social-text{
+    margin-right: 11px;
+  }
+  &__phone{
+    margin-bottom: 31px;
+  }
+  &__btn{
+    padding: 22px 47px;
+  }
+  &__top-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__menu-list{
+    align-self: stretch;
+    column-count: 2;
+    column-gap: 80px;
+  }
+  &__menu-list__item{
+    margin-bottom: 30px;
+    &:nth-child(3n){
+      margin-bottom: 0;
+    }
+  }
+  &__list-link{
+    color: $main-color;
+    transition: all .3s;
+    &:hover{
+      color: $btn-color;
+    }
+  }
+  &__partners{
+    padding: 40px 0;
+    border-bottom: 1px solid rgba($main-color, 0.2);
+    margin-bottom: 20px;
+  }
+  &-text{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    color: rgba($main-color, 0.5);
+  }
+}
+.footer-partners{
+  &__title{
+    margin-bottom: 38px;
+  }
+  &__items{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item-img{
+    height: 30px;
+    filter: grayscale(1);
+    opacity: 0.5;
+    transition: all .5s;
+    &:hover{
+      filter: grayscale(0);
+      opacity: 1;
+    }
+  }
+}
+.modal{
+  opacity: 0;
+  position: fixed;
+  z-index: 5000;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transform: translate(-500%, 0);
+  transition: all 0.5s;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  &__bg{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  &.active{
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  &__inner{
+    background-color: $main-bg-color;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    //position: fixed;
+    //left: 50%;
+    //top: 50%;
+    padding: 60px 55px 64px 55px;
+    max-width: 450px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    &.thanked{
+      padding-top: 163px;
+      padding-bottom: 163px;
+    }
+  }
+  &__title{
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    margin-bottom: 25px;
+  }
+  &__form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    height: 100%;
+    &.close{
+      display: none;
+    }
+  }
+  &__input{
+    width: 300px;
+    display: inline-block;
+    margin: 0 auto 25px auto;
+  }
+  &__btn{
+    width: 300px;
+    align-self: center;
+    margin-top: 20px;
+  }
+  &__textarea{
+    display: none;
+    resize: none;
+    margin-bottom: 20px;
+    height: 83px;
+    &.active{
+      display: block;
+    }
+  }
+}
+.btn__modal--close{
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  color: transparent;
+  right: -45px;
+  cursor: pointer;
+  border: none;
+  padding: 6px;
+  width: 36px;
+  height: 36px;
+  opacity: 0.5;
+  transition: all 0.5s;
+  animation-timing-function: linear;
+  z-index: 5;
+  &:hover{
+    opacity: 1;
+    transform: rotate(180deg) scale(0.75);
+  }
+  span{
+    position: absolute;
+    top: 15px;
+    left: 0;
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #fff;
+    transform: rotate(45deg);
+    &:last-child{
+      transform: rotate(-45deg);
+    }
+  }
+  &.thanked{
+    position: static;
+    width: 300px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    background-color: $btn-color;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    height: 60px;
+    opacity: 1;
+    span{
+      width: 0;
+    }
+    &:hover{
+      transform: none;
+    }
   }
 }
 

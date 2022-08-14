@@ -42,6 +42,7 @@ h6{
 .container{
   max-width: 1240px;
   padding: 0 20px;
+  width: 100%;
   margin: 0 auto;
 }
 .btn{
@@ -160,6 +161,18 @@ h6{
       line-height: 145%;
       color: rgba(#FFF, 0.5);
     }
+    &.invalid{
+      border-bottom-color: $input-invalid-color;
+      &::placeholder{
+        color: $input-invalid-color;
+      }
+      &:hover{
+        border-bottom-color: $input-invalid-color;
+        &::placeholder{
+          color: $input-invalid-color;
+        }
+      }
+    }
     &:hover{
       border-bottom: 2px solid rgba(#FFFFFF, 0.4);
       &::placeholder{
@@ -252,5 +265,66 @@ h6{
     font-weight: 600;
     font-size: 24px;
     line-height: 100%;
+  }
+}
+.social{
+  &-item{
+    display: flex;
+    align-items: center;
+    &:not(:last-child){
+      margin-right: 10px;
+    }
+  }
+  &-img{
+    width: 24px;
+    height: 24px;
+  }
+  &-link{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    &:hover path{
+      fill: $main-color;
+    }
+  }
+  &-image__path{
+    transition: all .3s;
+    fill: $btn-color;
+  }
+}
+
+.phone{
+  display: block;
+  padding-left: 29px;
+  position: relative;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  &::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    background-image: url('../images/phone-icon.svg');
+  }
+  &::after{
+    content: '';
+    height: 2px;
+    position: absolute;
+    bottom: -5px;
+    left: 29px;
+    width: 0;
+    background-color: $main-color;
+    transition: all .5s;
+  }
+  &:hover{
+    &::after{
+      width: calc(100% - 29px);
+    }
   }
 }

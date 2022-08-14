@@ -174,5 +174,88 @@ function slider(sliderContent) {
         animSlider.classList.add('active')
     }
 }
+
+
+const modalsBtn = [].slice.call(document.querySelectorAll('button[data-modal="modal"]'))
+const modalWindow = document.querySelector('.modal')
+const modalInner = document.querySelector('.modal__inner')
+const form = document.querySelector('.modal__form')
+const modalBg = document.querySelector('.modal__bg')
+const modalBtnClose = document.querySelector('.btn__modal--close')
+const modalBtnSubmit = document.querySelector('.modal__btn')
+const modalTitle = document.querySelector('.modal__title')
+const modalTextarea = document.querySelector('.modal__textarea')
+const modalText = document.querySelector('.modal__text ')
+const input1 = document.querySelector('.modal__input--1')
+const input2 = document.querySelector('.modal__input--2')
+function modal(){
+    form.addEventListener('submit', onSubmit);
+    modalsBtn.forEach(btn => {
+        btn.addEventListener('click', function modalOpen() {
+            modalWindow.classList.add('active')
+            form.classList.remove('close')
+            modalBtnClose.classList.remove('thanked')
+            modalInner.classList.remove('thanked')
+            if (btn.getAttribute('data-modal-num') === '1'){
+                modalTitle.textContent = 'Хочете отримати подарунок?'
+                modalText.textContent = 'Заповніть форму,  і ми звяжемося та розповімо про умови акції'
+                modalTextarea.classList.remove('active')
+            }
+            else if (btn.getAttribute('data-modal-num') === '2'){
+                modalTitle.textContent = 'Поговоримо?'
+                modalText.textContent = 'Заповніть форму, і ми звяжемося та обговоримо з вами усі деталі'
+                modalTextarea.classList.add('active')
+            }
+        })
+    })
+    function close(){
+        input1.value = ''
+        input2.value = ''
+        modalWindow.classList.remove('active')
+        input1.classList.remove('invalid')
+        input2.classList.remove('invalid')
+        modalTextarea.value = ''
+    }
+    modalBg.addEventListener('click', function () {
+        close()
+    })
+    modalBtnClose.addEventListener('click', function () {
+        close()
+    })
+    input1.addEventListener('input', ()=> input1.classList.remove('invalid'))
+    input2.addEventListener('input', ()=> input2.classList.remove('invalid'))
+    function onSubmit(event) {
+        event.preventDefault();
+        const inputValue1 = input1.value
+        const inputValue2 = input2.value
+        if (inputValue1 !== '' && inputValue2 !== ''){
+            thank()
+        }
+        else if (inputValue1 !== '' && inputValue2 === ''){
+            input2.classList.add('invalid')
+        }
+        else if (inputValue1 === '' && inputValue2 !== ''){
+            input1.classList.add('invalid')
+        }
+        else if (inputValue1 === '' && inputValue2 === ''){
+            input1.classList.add('invalid')
+            input2.classList.add('invalid')
+        }
+    }
+    function thank() {
+        form.classList.add('close')
+        modalInner.classList.add('thanked')
+        modalBtnClose.classList.add('thanked')
+        modalTitle.textContent = 'Дякуюємо!'
+        modalText.textContent = 'Ваша заявка успішно відправилена'
+    }
+}
+modal()
+
+
+
+
+
+
 slider('.top-slider__content')
 slider('.partners-slider__content')
