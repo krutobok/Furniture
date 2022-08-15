@@ -259,14 +259,16 @@ function formThank() {
         const button = form.querySelector('button[type="submit"]')
         button.addEventListener('click',()=> {
             const input = [].slice.call(form.querySelectorAll('input'))
-            console.log(input)
             let inputCounter = 0
             input.forEach(elem => {
+                elem.addEventListener('input', ()=> elem.classList.remove('invalid'))
                 if (elem.value === ''){
                     elem.classList.add('invalid')
                 }
                 else  if (elem.value !== ''){
                     inputCounter++
+                    console.log(elem.value)
+                    console.log(inputCounter)
                 }
             })
             if (inputCounter >= input.length){
