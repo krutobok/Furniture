@@ -312,6 +312,70 @@ function formThank() {
 formThank()
 
 
+const benefitsAnimation = document.querySelector('.benefits__anim')
+const benefitsItems = benefitsAnimation.querySelectorAll('.benefits__item')
+let cords
+let itemsHeight = []
+let itemsCords = []
+function benefitsPrev() {
+    cords = getCoords(benefitsAnimation)
+    itemsHeight = []
+    itemsCords = []
+    benefitsItems.forEach(elem => {
+        itemsHeight.push(elem.offsetHeight)
+    })
+    for (let l = 0; l < benefitsItems.length; l++) {
+        let plusCords = 0
+        for (let i = 0; i <= l; i++) {
+            plusCords += itemsHeight[i]
+        }
+        itemsCords.push(plusCords + cords.top)
+    }
+}
+benefitsPrev()
+
+benefitsAnimation.addEventListener('mousemove', benefits)
+benefitsAnimation.addEventListener('mouseout', ()=>{
+    benefitsItems.forEach(elem => {
+        elem.querySelector('.benefits__img').classList.remove('active')
+    })
+})
+
+function benefits(event) {
+    let benefitsItemActive
+    for (let i = 0; i<itemsCords.length; i++){
+        if (Math.floor(itemsCords[i]+60) > Math.floor(event.pageY)){
+            benefitsItemActive = benefitsItems[i].querySelector('.benefits__img')
+            benefitsItems.forEach(elem => {
+                elem.querySelector('.benefits__img').classList.remove('active')
+            })
+            benefitsItemActive.style.transition = 'height .3s'
+            benefitsItemActive.classList.add('active')
+            break
+        }
+        else if (Math.floor(itemsCords[i] + 120) > Math.floor(event.pageY) && itemsCords.length-1 === i){
+            benefitsItemActive = benefitsItems[i].querySelector('.benefits__img')
+            benefitsItems.forEach(elem => {
+                elem.querySelector('.benefits__img').classList.remove('active')
+            })
+            benefitsItemActive.classList.add('active')
+            benefitsItemActive.style.transition = 'height .05s'
+        }
+    }
+    benefitsItemActive.style.top = event.pageY - cords.top -120 + 'px'
+    benefitsItemActive.style.left = event.pageX -170 + 'px'
+}
+
+function getCoords(elem) {
+    let box = elem.getBoundingClientRect();
+    return {
+        top: box.top + window.pageYOffset,
+        right: box.right + window.pageXOffset,
+        bottom: box.bottom + window.pageYOffset,
+        left: box.left + window.pageXOffset
+    };
+}
+
 
 slider('.top-slider__content')
 slider('.partners-slider__content')

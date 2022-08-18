@@ -775,7 +775,73 @@
     }
   }
 }
-
+.benefits{
+  padding-bottom: 100px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  color: $main-color;
+  &__title{
+    margin-bottom: 20px;
+  }
+  &__anim{
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    counter-reset: benefits;
+  }
+  &__item-title{
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    max-width: 520px;
+  }
+  &__text{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135%;
+    color: rgba($main-color, 0.8);
+    max-width: 520px;
+  }
+  &__item-inner{
+    display: flex;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    justify-content: flex-end;
+    border-bottom: 1px solid rgba($main-color, 0.2);
+  }
+  &__item-content{
+    flex-basis: 50%;
+  }
+  &__img{
+    position: absolute;
+    height: 0;
+    z-index: -1;
+    //transition: height .3s;
+    width: 340px;
+    &.active{
+      height: 240px;
+    }
+  }
+  &__item{
+    &::before {
+      position: absolute;
+      counter-increment: benefits;
+      content: "0" counter(benefits);
+      max-width: 1240px;
+      padding: 50px 20px 0;
+      margin: 0 auto;
+      width: 100%;
+      left: 0;
+      right: 0;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 100%;
+      color: rgba($main-color, 0.3);
+    }
+  }
+}
 
 
 @import "media";
