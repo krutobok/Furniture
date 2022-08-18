@@ -183,7 +183,7 @@
             </div>
         </section>
         <section class="discuss form-section">
-                <div class="form-content discuss__content">
+                <div class="form-content discuss__content" data-form="parent">
                     <h2 class="title discuss__title form-title">Обговоримо <br> ваш проект?</h2>
                     <div class="form-change discuss__change" data-form="change">
                         <p class="form-text discuss__text text-16">Заповніть форму і найближчим часом ми зв'яжемося з вами!</p>
@@ -201,6 +201,11 @@
                                 Даю згоду на оброблення персональних даних
                             </label>
                         </form>
+                    </div>
+                    <div class="form-thanked questions__thanked" data-form="thank">
+                        <h5 class="form-thanked__title questions__thanked-title">Дякуємо, що звернулися до нас!</h5>
+                        <p class="form-thanked__text questions__thanked-text text-16">Наш менеджер зв'яжеться з вами протягом години.</p>
+                        <button class="btn form-thanked__btn--resend questions__thanked-btn--resend" data-form='resend'>Відправити повторно</button>
                     </div>
                 </div>
                 <div class="form-img-box discuss__img-box">
@@ -322,7 +327,7 @@
             </div>
         </section>
         <section class="questions form-section">
-            <div class="form-content questions__content">
+            <div class="form-content questions__content" data-form="parent">
                 <h2 class="title questions__title form-title">Залишилися <br>  питання?</h2>
                 <div class="form-change questions__change" data-form="change">
                     <p class="form-text questions__text text-16">Отримай безкоштовну консультацію менеджера та прорахунок проекту </p>
@@ -337,9 +342,10 @@
                         </label>
                     </form>
                 </div>
-                <div class="form-thanked questions__thanked">
+                <div class="form-thanked questions__thanked" data-form="thank">
                     <h5 class="form-thanked__title questions__thanked-title">Дякуємо, що звернулися до нас!</h5>
-                    <p class="form-thanked__text questions__-thanked-text">Наш менеджер зв'яжеться з вами протягом години.</p>
+                    <p class="form-thanked__text questions__thanked-text text-16">Наш менеджер зв'яжеться з вами протягом години.</p>
+                    <button class="btn form-thanked__btn--resend questions__thanked-btn--resend" data-form='resend'>Відправити повторно</button>
                 </div>
             </div>
             <div class="form-img-box questions__img-box">

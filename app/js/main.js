@@ -8,7 +8,6 @@ function slider(sliderContent) {
     const parentBlock =   slider.closest('[data-slider="parent-block"]')
     sliderInner.style.transition = 'left .5s'
     let items = slider.children
-    console.log(items)
     let width = window.getComputedStyle(items[0]).getPropertyValue('width')
     width = parseInt(width.substring(0, width.length-2))
     let margin = window.getComputedStyle(items[0]).getPropertyValue('margin-right')
@@ -94,8 +93,6 @@ function slider(sliderContent) {
                 dots.forEach(elem => elem.classList.remove("active"))
                 dots[currentSlide-1].classList.add('active')
             }
-
-            console.log('cur' + currentSlide)
             if (currentLeft > 0){
                 currentLeft--
                 if (currentLeft > 0){
@@ -144,10 +141,8 @@ function slider(sliderContent) {
             pos = touchLocation.pageX
         }
         let posEnd
-        console.log(pos)
         parent.ontouchend = () => {
             posEnd = touchLocation.pageX
-            console.log(posEnd)
             if (pos > posEnd){
                 moveRight()
             }
@@ -255,9 +250,66 @@ modal()
 const forms = [].slice.call(document.querySelectorAll('form[data-form="thank"]'))
 
 
-function formThank() {
 
+
+
+function formThank() {
+    forms.forEach(form => {
+        form.addEventListener('submit', onSubmit);
+        const button = form.querySelector('button[type="submit"]')
+        button.addEventListener('click',()=> {
+            const input = [].slice.call(form.querySelectorAll('input'))
+            let inputCounter = 0
+            input.forEach(elem => {
+                elem.addEventListener('input', ()=> elem.classList.remove('invalid'))
+                if (elem.value === '' && elem.getAttribute('type') !== 'file'){
+                    elem.classList.add('invalid')
+                }
+                else if(elem.value === '' && elem.getAttribute('type') === 'file'){
+                    elem.closest('label').classList.add('invalid')
+                    elem.addEventListener('change', ()=>{
+                        elem.closest('label').classList.remove('invalid')
+                    })
+
+                }
+                else  if (elem.getAttribute('type') === 'checkbox'){
+                    if (elem.checked){
+                        inputCounter++
+                    }
+                    else{
+                        elem.closest('label').classList.add('invalid')
+                        elem.addEventListener('change', ()=>{
+                            elem.closest('label').classList.remove('invalid')
+                        })
+                    }
+                }
+                else  if (elem.value !== '' && elem.getAttribute('type') !== 'checkbox'){
+                    inputCounter++
+                }
+            })
+            if (inputCounter >= input.length){
+                const changeElem = form.closest('div[data-form="change"]')
+                changeElem.classList.add('active')
+                const parent = form.closest('div[data-form="parent"]')
+                const thank = parent.querySelector('div[data-form="thank"]')
+                thank.classList.add('active')
+                changeElem.classList.remove('resend')
+                thank.classList.remove('resend')
+                const resendBtn = thank.querySelector('button[data-form="resend"]')
+                resendBtn.addEventListener('click', ()=>{
+                    changeElem.classList.remove('active')
+                    changeElem.classList.add('resend')
+                    thank.classList.add('resend')
+                    thank.classList.remove('active')
+                })
+            }
+        })
+    })
+    function onSubmit(event) {
+        event.preventDefault();
+    }
 }
+formThank()
 
 
 

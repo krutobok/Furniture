@@ -105,13 +105,26 @@ h6{
   &-change{
     display: block;
     &.active{
-      display: none;
+      animation-name: formIn;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+    }
+    &.resend{
+      animation-name: formOut;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-delay: 0.3s;
+      animation-timing-function: ease-in;
+      opacity: 0;
+      position: absolute;
     }
   }
   &-section{
     background-color: $main-bg-color;
     display: flex;
     justify-content: flex-end;
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
   &-content{
     max-width: 600px;
@@ -203,7 +216,12 @@ h6{
     padding-top: 2px;
     padding-bottom: 2px;
     opacity: 0.5;
-    transition: all 0.3s;
+    transition: opacity 0.3s;
+    &.invalid{
+      opacity: 1;
+      transition: opacity 0s;
+      color: $input-invalid-color;
+    }
     &::before{
       position: absolute;
       content: '';
@@ -230,6 +248,9 @@ h6{
     cursor: pointer;
     display: flex;
     align-items: center;
+    &.invalid{
+      color: $input-invalid-color;
+    }
   }
   &-checkbox-span{
     width: 20px;
@@ -335,8 +356,76 @@ h6{
   }
 }
 .form-thanked{
-  display: none;
+  flex-direction: column;
+  min-height: 67%;
+  transform: translateX(-500%);
+  position: absolute;
   &.active{
-    display: block;
+    animation-name: formThankedIn;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    animation-delay: 0.5s;
+  }
+  &.resend{
+    animation-name: formThankedOut;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+  }
+  &__title{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    margin-bottom: 20px;
+    margin-top: 60px;
+  }
+  &__text{
+    color: $opacity-white;
+    margin-bottom: 133px;
+  }
+  &__btn--resend{
+    padding: 22px 65px;
+    margin-right: auto;
+  }
+}
+
+@keyframes formIn {
+  0%{
+    opacity: 1;
+    position: static;
+  }
+  99%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+    position: absolute;
+  }
+}
+@keyframes formOut {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+
+@keyframes formThankedIn {
+  0%{
+    transform: translateX(-500%);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+@keyframes formThankedOut {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-500%);
   }
 }
