@@ -338,6 +338,7 @@ benefitsAnimation.addEventListener('mousemove', benefits)
 benefitsAnimation.addEventListener('mouseout', ()=>{
     benefitsItems.forEach(elem => {
         elem.querySelector('.benefits__img').classList.remove('active')
+        elem.classList.remove('active')
     })
 })
 
@@ -348,8 +349,10 @@ function benefits(event) {
             benefitsItemActive = benefitsItems[i].querySelector('.benefits__img')
             benefitsItems.forEach(elem => {
                 elem.querySelector('.benefits__img').classList.remove('active')
+                elem.classList.remove('active')
             })
             benefitsItemActive.style.transition = 'height .3s'
+            benefitsItems[i].classList.add('active')
             benefitsItemActive.classList.add('active')
             break
         }
@@ -357,7 +360,9 @@ function benefits(event) {
             benefitsItemActive = benefitsItems[i].querySelector('.benefits__img')
             benefitsItems.forEach(elem => {
                 elem.querySelector('.benefits__img').classList.remove('active')
+                elem.classList.remove('active')
             })
+            benefitsItems[i].classList.add('active')
             benefitsItemActive.classList.add('active')
             benefitsItemActive.style.transition = 'height .05s'
         }
