@@ -12,7 +12,6 @@ function slider(sliderContent) {
     width = parseInt(width.substring(0, width.length-2))
     let margin = window.getComputedStyle(items[0]).getPropertyValue('margin-right')
     margin = parseInt(margin.substring(0,margin.length-2))
-    sliderInner.style.left = -width-margin + 'px'
     const parent = slider.closest('[data-slider="inner"]')
     const btnRight = parentBlock.querySelector('[data-arrow="right"]')
     const btnLeft = parentBlock.querySelector('[data-arrow="left"]')
@@ -23,21 +22,42 @@ function slider(sliderContent) {
         }
     }
     let slideCounter = 1
-    let sliderPos = -width-margin
+    let sliderPos
     let currentSlide = 1
     let dots = []
     let isDots
+    let isCenterMode
     let currentRight
     let currentLeft
     let interval
     let isAutoplay
     let time
-    if (parentBlock.getAttribute('data-dots') === 'true'){
-        isDots = true
+    let centerSliderCounter = 0
+    if (parentBlock.hasAttribute('data-dots')){
+        if (parentBlock.getAttribute('data-dots') === 'true'){
+            isDots = true
+        }
     }
     else{
         isDots = false
     }
+    if (parentBlock.hasAttribute('data-center-mode')){
+        if (parentBlock.getAttribute('data-center-mode') === 'true'){
+            isCenterMode = true
+            for (let i = 0; i < document.documentElement.clientWidth/width; i++){
+                centerSliderCounter++
+            }
+            sliderPos = -(width*centerSliderCounter-((document.documentElement.clientWidth-width)/2))
+            slider.style.left = -sliderPos + (-2*width + (((document.documentElement.clientWidth-width)/2))) + 'px'
+            sliderInner.style.left = -(width*centerSliderCounter-((document.documentElement.clientWidth-width)/2)) + 'px'
+        }
+    }
+    else{
+        isCenterMode = false
+        sliderPos = -width-margin
+        sliderInner.style.left = -width-margin + 'px'
+    }
+
     if (parentBlock.hasAttribute('data-autoplay')){
         isAutoplay = true
         time = parseFloat(parentBlock.getAttribute('data-autoplay'))
@@ -83,12 +103,27 @@ function slider(sliderContent) {
         if (currentSlide === 0){
             currentSlide = items.length
         }
+        if (isCenterMode){
+            for (let i = 0; i < items.length; i++){
+                items[i].classList.remove('active')
+            }
+        }
         setTimeout(()=> {
             items[(currentSlide+items.length-1)%items.length].style.order = '1'
             for (let i = items.length - 1; i > 0; i--){
                 items[(currentSlide+i-1)%items.length].style.order = (i+2).toString()
             }
-            slider.style.left = -sliderPos - (width + margin) + 'px'
+            if (isCenterMode){
+                slider.style.left = -sliderPos + (-2*width + (((document.documentElement.clientWidth-width)/2))) + 'px'
+                for (let i = 0; i < items.length; i++){
+                    if (items[i].style.order === '4'){
+                        items[i].classList.add('active')
+                    }
+                }
+            }
+            else{
+                slider.style.left = -sliderPos - (width + margin) + 'px'
+            }
             if (isDots){
                 dots.forEach(elem => elem.classList.remove("active"))
                 dots[currentSlide-1].classList.add('active')
@@ -383,4 +418,5 @@ function getCoords(elem) {
 
 
 slider('.top-slider__content')
+slider('.in-work-slider__content')
 slider('.partners-slider__content')
