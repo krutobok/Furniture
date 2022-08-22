@@ -286,7 +286,6 @@
   }
   &__video{
     height: 200px;
-    width: 160px;
     object-fit: cover;
     display: block;
     &--2{
@@ -618,9 +617,19 @@
   &__list-link{
     color: $main-color;
     transition: all .3s;
+    font-size: 16px;
+    line-height: 100%;
+    font-weight: 500;
+    cursor: pointer;
     &:hover{
       color: $btn-color;
     }
+  }
+  &__list-btn{
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    border: none;
   }
   &__partners{
     padding: 40px 0;
@@ -723,6 +732,7 @@
     width: 300px;
     align-self: center;
     margin-top: 20px;
+    margin-bottom: 30px;
   }
   &__textarea{
     display: none;
@@ -731,6 +741,22 @@
     height: 83px;
     &.active{
       display: block;
+    }
+  }
+  &__checkbox-label{
+    width: 300px;
+    padding-left: 25px;
+    margin: 0 auto;
+  }
+  &__checkbox-span{
+    width: 15px;
+    height: 15px;
+    margin-left: -25px;
+  }
+  &__checkbox{
+    &:checked + .modal__checkbox-span::before{
+      width: 5px;
+      height: 5px;
     }
   }
 }

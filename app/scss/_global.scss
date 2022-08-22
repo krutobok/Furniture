@@ -129,7 +129,7 @@ h6{
   &-content{
     max-width: 600px;
     width: 100%;
-    padding: 100px 0;
+    padding: 100px 0 100px 20px;
     text-align: left;
   }
   &-title{
@@ -427,5 +427,25 @@ h6{
   }
   100%{
     transform: translateX(-500%);
+  }
+}
+.animate-title.animate,{
+  overflow-y: hidden;
+  span{
+    transform: translateY(200%);
+    transition: all 0.5s;
+    display: inline-block;
+  }
+  &.animation-active{
+    span{
+      transform: translateY(0);
+    }
+  }
+}
+.about__video.animate{
+  transition: width 0.5s;
+  width: 0;
+  &.animation-active{
+    width: 160px;
   }
 }
