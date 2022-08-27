@@ -1,5 +1,27 @@
 const topSliderItems = document.querySelectorAll('.top-slider__item')
 
+const menuBtn = document.querySelector('.header__mobile-menu')
+const menu = document.querySelector('.header__menu-list')
+const menuRight = document.querySelector('.header__right')
+const menuInner = document.querySelector('.header__inner')
+
+menuBtn.addEventListener('click', menuFunction)
+
+function menuFunction() {
+    menu.classList.toggle('active')
+    menuRight.classList.toggle('active')
+    menuBtn.classList.toggle('active')
+}
+function menuResize(){
+    if (document.documentElement.clientWidth < 641){
+        menuRight.appendChild(menu)
+    }
+    else{
+        menuInner.appendChild(menu)
+    }
+}
+menuResize()
+
 topSliderItems.forEach(elem => elem.style.backgroundImage = elem.style.backgroundImage + ', linear-gradient(180deg, rgba(0, 0, 0, 0.2) -13.19%, rgba(0, 0, 0, 0.85) 94.01%)')
 
 function slider(sliderContent) {
@@ -66,7 +88,7 @@ function slider(sliderContent) {
         const dotsInner = parentBlock.querySelector('[data-slider="dots-box"]')
         for (let i = 0; i < items.length; i++){
             const elem = document.createElement('button')
-            elem.classList.add('top-slider__dot')
+            elem.classList.add('dot')
             elem.textContent = i+1
             elem.dataset.id = i+1
             dots.push(elem)
@@ -379,15 +401,24 @@ function benefitsPrev() {
         itemsCords.push(plusCords + cords.top)
     }
 }
-benefitsPrev()
 
-benefitsAnimation.addEventListener('mousemove', benefits)
-benefitsAnimation.addEventListener('mouseout', ()=>{
+if (document.documentElement.clientWidth > 839){
+    benefitsPrev()
+    benefitsAnimation.addEventListener('mousemove', benefits)
+    benefitsAnimation.addEventListener('mouseout', benefitsMouseout)
+}
+else {
+    benefitsAnimation.removeEventListener('mousemove', benefits)
+    benefitsAnimation.removeEventListener('mouseout', benefitsMouseout)
+}
+function benefitsMouseout() {
     benefitsItems.forEach(elem => {
         elem.querySelector('.benefits__img').classList.remove('active')
         elem.classList.remove('active')
     })
-})
+}
+
+
 
 function benefits(event) {
     let benefitsItemActive
@@ -438,7 +469,6 @@ anchors.forEach(function(item) {
 
         let coordY = document.querySelector(item.getAttribute('href')).getBoundingClientRect().top + window.pageYOffset;
         let coordY2 = (coordY-window.pageYOffset)
-        console.log('coordY2: ' + coordY2)
         let scroller = setInterval(function() {
             let scrollBy = (Math.abs(coordY2) / framesCount);
             if (coordY2>0){
@@ -471,8 +501,6 @@ const scrollAnimation = () => {
     let windowCenter = window.innerHeight + window.scrollY;
     scrollItems.forEach(el => {
         let scrollOffset = getCoords(el).top + (el.offsetHeight / 2);
-        console.log(scrollOffset)
-        console.log(windowCenter-el.offsetHeight)
         if (windowCenter-el.offsetHeight >= scrollOffset) {
             if (windowCenter-window.innerHeight < scrollOffset){
                 el.classList.add('animation-active');
@@ -489,7 +517,19 @@ window.addEventListener('scroll', () => {
 
 
 
-
 slider('.top-slider__content')
 slider('.in-work-slider__content')
 slider('.partners-slider__content')
+
+window.addEventListener('resize',  ()=> {
+    menuResize()
+    if (document.documentElement.clientWidth > 839){
+        benefitsPrev()
+        benefitsAnimation.addEventListener('mousemove', benefits)
+        benefitsAnimation.addEventListener('mouseout', benefitsMouseout)
+    }
+    else {
+        benefitsAnimation.removeEventListener('mousemove', benefits)
+        benefitsAnimation.removeEventListener('mouseout', benefitsMouseout)
+    }
+});

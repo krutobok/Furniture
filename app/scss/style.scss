@@ -5,10 +5,13 @@
 @import "global";
 
 
-
+.header__mobile-btn--discuss{
+  display: none;
+}
 .header{
   padding: 20px 0;
   color: $main-color;
+  background: #FFFFFF;
   &__inner{
     display: flex;
     justify-content: space-between;
@@ -27,6 +30,7 @@
     font-size: 16px;
     line-height: 100%;
     align-items: center;
+    order: 2;
   }
   &__menu-list__item{
     &:not(:last-child){
@@ -47,6 +51,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    order: 3;
+  }
+  &__mobile-menu{
+    display: none;
   }
 }
 .top-slider{
@@ -134,17 +142,17 @@
     }
     &.active{
       &::before{
-        width: 100%;
+        width: calc(100% - 40px);
         transition: width 6s;
       }
     }
     &::after{
       z-index: 4;
-      width: 100%;
+      width: calc(100% - 40px);
       background-color: rgba(#fff, 0.4);
     }
   }
-  &__dot{
+  .dot{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -179,11 +187,13 @@
     display: grid;
     gap: 25px;
     grid-template-columns: 1fr 1fr;
+    padding: 0;
   }
   &__arrow{
     background-color: transparent;
     cursor: pointer;
     border: none;
+    padding: 0;
     &:hover .top-slider__arrow-img path{
       fill: $btn-color;
     }
@@ -198,22 +208,17 @@
   padding: 100px 0 140px 0;
   &__items{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     border-right: 1px solid rgba($main-color, 0.2);
-    border-left: 1px solid rgba($main-color, 0.2);
+    //border-left: 1px solid rgba($main-color, 0.2);
     counter-reset: work;
   }
   &__item{
-    &:not(:first-child){
-      padding-left: 30px;
-      border-left: 1px solid rgba($main-color, 0.2);
-      &::before{
-        left: 30px;
-      }
-    }
+    padding: 84px 30px 0 30px;
+    border-left: 1px solid rgba($main-color, 0.2);
     position: relative;
-    padding-top: 84px;
     &::before {
+      left: 30px;
       position: absolute;
       counter-increment: work;
       content: "0" counter(work);
@@ -834,6 +839,7 @@
     line-height: 130%;
     max-width: 520px;
     transition: all .3s;
+    margin-bottom: 10px;
   }
   &__text{
     font-weight: 400;
@@ -867,12 +873,22 @@
   }
   &__item{
     padding-top: 50px;
+    &:first-child{
+      padding-top: 0;
+      .benefits__item-inner{
+        padding-top: 50px;
+        border-top: 1px solid rgba($main-color, 0.2);
+      }
+      &::before {
+        padding-top: 50px;
+      }
+    }
     &::before {
       position: absolute;
       counter-increment: benefits;
       content: "0" counter(benefits);
       max-width: 1240px;
-      padding: 50px 20px 0;
+      padding: 0 20px 0;
       margin: 0 auto;
       width: 100%;
       left: 0;
