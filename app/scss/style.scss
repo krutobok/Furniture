@@ -5,10 +5,13 @@
 @import "global";
 
 
-
+.header__mobile-btn--discuss{
+  display: none;
+}
 .header{
   padding: 20px 0;
   color: $main-color;
+  background: #FFFFFF;
   &__inner{
     display: flex;
     justify-content: space-between;
@@ -27,6 +30,7 @@
     font-size: 16px;
     line-height: 100%;
     align-items: center;
+    order: 2;
   }
   &__menu-list__item{
     &:not(:last-child){
@@ -47,6 +51,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    order: 3;
+  }
+  &__mobile-menu{
+    display: none;
   }
 }
 .top-slider{
@@ -134,17 +142,17 @@
     }
     &.active{
       &::before{
-        width: 100%;
+        width: calc(100% - 40px);
         transition: width 6s;
       }
     }
     &::after{
       z-index: 4;
-      width: 100%;
+      width: calc(100% - 40px);
       background-color: rgba(#fff, 0.4);
     }
   }
-  &__dot{
+  .dot{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -179,11 +187,13 @@
     display: grid;
     gap: 25px;
     grid-template-columns: 1fr 1fr;
+    padding: 0;
   }
   &__arrow{
     background-color: transparent;
     cursor: pointer;
     border: none;
+    padding: 0;
     &:hover .top-slider__arrow-img path{
       fill: $btn-color;
     }
@@ -198,22 +208,17 @@
   padding: 100px 0 140px 0;
   &__items{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     border-right: 1px solid rgba($main-color, 0.2);
-    border-left: 1px solid rgba($main-color, 0.2);
+    //border-left: 1px solid rgba($main-color, 0.2);
     counter-reset: work;
   }
   &__item{
-    &:not(:first-child){
-      padding-left: 30px;
-      border-left: 1px solid rgba($main-color, 0.2);
-      &::before{
-        left: 30px;
-      }
-    }
+    padding: 84px 30px 0 30px;
+    border-left: 1px solid rgba($main-color, 0.2);
     position: relative;
-    padding-top: 84px;
     &::before {
+      left: 30px;
       position: absolute;
       counter-increment: work;
       content: "0" counter(work);
@@ -286,7 +291,6 @@
   }
   &__video{
     height: 200px;
-    width: 160px;
     object-fit: cover;
     display: block;
     &--2{
@@ -354,6 +358,7 @@
   }
 }
 .discuss{
+  min-height: 710px;
   &__img-box{
     max-height: 720px;
   }
@@ -531,18 +536,30 @@
     justify-content: center;
     cursor: pointer;
     background-color: transparent;
-    &--left{
+    transition: all .5s;
+    &--right{
       transform: rotate(180deg);
+    }
+    path{
+      transition: all .5s;
+    }
+    &:hover{
+      border-color: $btn-color;
+      path{
+        fill: $btn-color;
+      }
     }
   }
   &__arrows{
     display: flex;
     justify-content: space-between;
     width: 130px;
+    height: 56px;
     margin: 0 auto;
   }
 }
 .questions{
+  min-height: 660px;
   &__img-box{
     max-height: 663px;
   }
@@ -605,9 +622,19 @@
   &__list-link{
     color: $main-color;
     transition: all .3s;
+    font-size: 16px;
+    line-height: 100%;
+    font-weight: 500;
+    cursor: pointer;
     &:hover{
       color: $btn-color;
     }
+  }
+  &__list-btn{
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    border: none;
   }
   &__partners{
     padding: 40px 0;
@@ -710,6 +737,7 @@
     width: 300px;
     align-self: center;
     margin-top: 20px;
+    margin-bottom: 30px;
   }
   &__textarea{
     display: none;
@@ -718,6 +746,22 @@
     height: 83px;
     &.active{
       display: block;
+    }
+  }
+  &__checkbox-label{
+    width: 300px;
+    padding-left: 25px;
+    margin: 0 auto;
+  }
+  &__checkbox-span{
+    width: 15px;
+    height: 15px;
+    margin-left: -25px;
+  }
+  &__checkbox{
+    &:checked + .modal__checkbox-span::before{
+      width: 5px;
+      height: 5px;
     }
   }
 }
@@ -771,6 +815,217 @@
     &:hover{
       transform: none;
     }
+  }
+}
+.benefits{
+  padding-bottom: 100px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  color: $main-color;
+  &__title{
+    margin-bottom: 20px;
+  }
+  &__anim{
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    counter-reset: benefits;
+  }
+  &__item-title{
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    max-width: 520px;
+    transition: all .3s;
+    margin-bottom: 10px;
+  }
+  &__text{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135%;
+    color: rgba($main-color, 0.8);
+    max-width: 520px;
+  }
+  &__item-inner{
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid rgba($main-color, 0.2);
+  }
+  &__item-content{
+    flex-basis: 50%;
+    padding-left: 40px;
+    padding-bottom: 50px;
+    border-left: 1px solid rgba($main-color, 0.2);
+  }
+  &__img{
+    position: absolute;
+    height: 0;
+    z-index: -1;
+    display: inline-block;
+    filter: drop-shadow(0px 15px 20px rgba(0, 0, 0, 0.05));
+    //transition: height .3s;
+    width: 340px;
+    &.active{
+      height: 240px;
+    }
+  }
+  &__item{
+    padding-top: 50px;
+    &:first-child{
+      padding-top: 0;
+      .benefits__item-inner{
+        padding-top: 50px;
+        border-top: 1px solid rgba($main-color, 0.2);
+      }
+      &::before {
+        padding-top: 50px;
+      }
+    }
+    &::before {
+      position: absolute;
+      counter-increment: benefits;
+      content: "0" counter(benefits);
+      max-width: 1240px;
+      padding: 0 20px 0;
+      margin: 0 auto;
+      width: 100%;
+      left: 0;
+      right: 0;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 100%;
+      color: rgba($main-color, 0.3);
+      transition: all .3s;
+    }
+    &.active{
+      color: $btn-color;
+      &::before{
+        color: $btn-color;
+      }
+    }
+  }
+}
+
+.in-work{
+  padding-bottom: 140px;
+  &__title{
+    margin-bottom: 50px;
+  }
+}
+.in-work-slider{
+  overflow-x: hidden;
+  position: relative;
+  &__content{
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+  }
+  &__content-inner{
+    overflow-x: hidden;
+    position: relative;
+    min-height: 435px;
+  }
+  &__wrapper{
+    position: absolute;
+    min-height: 435px;
+  }
+  &__item-img{
+    height: 48px;
+    object-fit: contain;
+    pointer-events: none;
+  }
+  &__item{
+    width: 640px;
+    padding: 0 20px;
+    display: flex;
+    height: 435px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    &::before{
+      position: absolute;
+      content: '';
+      width: 600px;
+      height: 340px;
+      top:0;
+      left: 20px;
+      background: rgba(61, 74, 57, 0.7);
+      transition: all .2s;
+    }
+    &.active{
+      &::before{
+        background: rgba(61, 74, 57, 0);
+        transition: all .3s;
+      }
+      .in-work-slider__item-content{
+        opacity: 1;
+      }
+    }
+    .in-work-slider__item-content{
+      transition: all .3s;
+      opacity: 0;
+    }
+  }
+  &__img{
+    display: inline-block;
+    width: 600px;
+    height: 340px;
+    margin-bottom: 30px;
+    pointer-events: none;
+  }
+  &__title{
+    margin-bottom: 10px;
+    color: $main-color;
+  }
+  &__text{
+    color: rgba($main-color, 0.5);
+  }
+  &__arrow{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: #fff;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .5s;
+    path{
+      transition: all .5s;
+    }
+    &:hover{
+      background-color: $btn-color;
+      path{
+        fill: #FFFFFF;
+      }
+    }
+  }
+  &__btn-box{
+    top: 0;
+    height: 0;
+    position: absolute;
+    max-width: 840px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  &__arrows{
+    height: 0;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    top: 147px;
+    left: 0;
+    right: 0;
+  }
+  &__dots{
+    display: none;
   }
 }
 
