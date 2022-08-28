@@ -69,12 +69,7 @@ export function images() {
         imageminGifsicle({interlaced: true}),
         imageminJpegtran({quality: 75, progressive: true}),
         imageminOptipng({optimizationLevel: 5}),
-        imageminSvgo({
-            plugins: [
-                {removeViewBox: true},
-                {cleanupIDs: false}
-            ]
-        })
+        imageminSvgo()
     ]))
     .pipe(gulp.dest('dist/images'))
 }

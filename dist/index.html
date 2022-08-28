@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="#" class="header__logo-link logo-link">
+                    <img src="images/logo.svg" alt="logo" class="logo header__logo">
+                </a>
+                <ul class="header__menu-list">
+                    <li class="header__menu-list__item"><a href="#directions" class="header__menu-list__link">Напрямки</a></li>
+                    <li class="header__menu-list__item"><a href="#about" class="header__menu-list__link">Про компанію</a></li>
+                    <li class="header__menu-list__item"><a href="#benefits" class="header__menu-list__link">Переваги</a></li>
+                    <li class="header__menu-list__item"><a href="#stages" class="header__menu-list__link">Етапи роботи</a></li>
+                </ul>
+                <div class="header__right">
+                    <ul class="header__social-list">
+                        <li class="header__social-item social-item">
+                            <a href="#" class="header__social-link social-link">
+                                <svg class="header__social-image social-image" width="24" height="24" viewBox="0 -1 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="header__social-image__path social-image__path" d="M20.9469 8.305C20.9369 7.54762 20.7951 6.79777 20.5279 6.089C20.2963 5.49115 19.9425 4.9482 19.4891 4.49483C19.0358 4.04146 18.4928 3.68765 17.8949 3.456C17.1953 3.19336 16.4561 3.05134 15.7089 3.036C14.7469 2.993 14.4419 2.981 11.9999 2.981C9.55795 2.981 9.24495 2.981 8.28995 3.036C7.54311 3.05145 6.8043 3.19347 6.10495 3.456C5.50701 3.68749 4.96397 4.04124 4.51058 4.49463C4.05719 4.94802 3.70344 5.49106 3.47195 6.089C3.20878 6.78813 3.06707 7.52711 3.05295 8.274C3.00995 9.237 2.99695 9.542 2.99695 11.984C2.99695 14.426 2.99695 14.738 3.05295 15.694C3.06795 16.442 3.20895 17.18 3.47195 17.881C3.70383 18.4788 4.05784 19.0216 4.51138 19.4748C4.96492 19.928 5.50801 20.2816 6.10595 20.513C6.80338 20.7862 7.54232 20.9384 8.29095 20.963C9.25395 21.006 9.55895 21.019 12.0009 21.019C14.4429 21.019 14.7559 21.019 15.7109 20.963C16.4581 20.9483 17.1973 20.8066 17.8969 20.544C18.4946 20.3121 19.0375 19.9582 19.4908 19.5048C19.9441 19.0515 20.298 18.5087 20.5299 17.911C20.7929 17.211 20.9339 16.473 20.9489 15.724C20.9919 14.762 21.0049 14.457 21.0049 12.014C21.0029 9.572 21.0029 9.262 20.9469 8.305ZM11.9939 16.602C9.43995 16.602 7.37095 14.533 7.37095 11.979C7.37095 9.425 9.43995 7.356 11.9939 7.356C13.22 7.356 14.3959 7.84306 15.2629 8.71004C16.1299 9.57703 16.6169 10.7529 16.6169 11.979C16.6169 13.2051 16.1299 14.381 15.2629 15.248C14.3959 16.1149 13.22 16.602 11.9939 16.602ZM16.8009 8.263C16.6593 8.26313 16.5191 8.23534 16.3883 8.18121C16.2574 8.12708 16.1385 8.04768 16.0384 7.94755C15.9383 7.84743 15.8589 7.72854 15.8047 7.59769C15.7506 7.46684 15.7228 7.3266 15.7229 7.185C15.7229 7.0435 15.7508 6.90339 15.805 6.77266C15.8591 6.64193 15.9385 6.52315 16.0385 6.42309C16.1386 6.32304 16.2574 6.24367 16.3881 6.18952C16.5188 6.13537 16.6589 6.1075 16.8004 6.1075C16.9419 6.1075 17.0821 6.13537 17.2128 6.18952C17.3435 6.24367 17.4623 6.32304 17.5624 6.42309C17.6624 6.52315 17.7418 6.64193 17.7959 6.77266C17.8501 6.90339 17.8779 7.0435 17.8779 7.185C17.8779 7.781 17.3959 8.263 16.8009 8.263Z" fill="#AE7B3C"/>
+                                    <path class="header__social-image__path social-image__path" d="M11.994 14.982C13.6525 14.982 14.997 13.6375 14.997 11.979C14.997 10.3205 13.6525 8.976 11.994 8.976C10.3355 8.976 8.99097 10.3205 8.99097 11.979C8.99097 13.6375 10.3355 14.982 11.994 14.982Z" fill="#AE7B3C"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="header__social-item social-item">
+                            <a href="#" class="header__social-link social-link">
+                                <svg class="header__social-image social-image"  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="header__social-image__path social-image__path" d="M9.55277 22.5746V12.9204H7V9.44441H9.55277V6.47548C9.55277 4.14247 11.0607 2 14.5353 2C15.9421 2 16.9824 2.13487 16.9824 2.13487L16.9004 5.38083C16.9004 5.38083 15.8395 5.3705 14.6818 5.3705C13.4288 5.3705 13.228 5.94793 13.228 6.90631V9.44441H17L16.8359 12.9204H13.228V22.5746H9.55277Z" fill="#AE7B3C"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="tel:380676615415" class="header__phone phone">+380 67661 5415</a>
+                    <a href="#discuss" class="header__mobile-btn--discuss btn">Обговорити проект</a>
+                </div>
+                <button class="header__mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="top-slider" data-slider="parent-block" data-anim="true" data-dots="true" data-autoplay="5">
+            <div class="top-slider__content-inner" data-slider="inner">
+                <div class="top-slider__wrapper" data-slider="wrapper">
+                    <div class="top-slider__content">
+                        <div class="top-slider__item" style="background-image: url('images/top-slider-3.jpg');">
+                            <div class="container">
+                                <div class="top-slider__inner">
+                                    <h1 class="top-slider__title animate animate-title" ><span>виробництво <br> меблів</span></h1>
+                                    <p class="top-slider__text top-slider__text--3">Ми виконуємо комплексне виготовлення корпусних меблів для житлових і комерційних приміщень, забезпечимо Вас якісним меблевим продуктом власного виробництва. </p>
+                                    <a href="#discuss" class="top-slider__btn btn">Обговорити проект</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top-slider__item" style="background-image: url('images/top-slider-1.jpg');">
+                            <div class="container">
+                                <div class="top-slider__inner">
+                                    <h1 class="top-slider__title animate animate-title"><span>комплексне меблювання інтреєрів</span></h1>
+                                    <p class="top-slider__text top-slider__text--1">Ми створені виконувати об`єктні задачі комплексного меблювання житлових та комерційних приміщень.
+                                        Наш колектив націлений на результат -
+                                        вчасно реалізувати проект на найвищому рівні. Ми забезпечуємо ваш спокій та беремо на себе вирішення будь-яких задач.
+                                    </p>
+                                    <a href="#discuss" class="top-slider__btn btn">Обговорити проект</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top-slider__item" style="background-image: url('images/top-slider-2.jpg');">
+                            <div class="container">
+                                <div class="top-slider__inner">
+                                    <h1 class="top-slider__title animate animate-title"><span>Дизайн<br> інтреєру</span></h1>
+                                    <p class="top-slider__text top-slider__text--2">В дизайні ми поєднуємо стильні ідеї з практичною ергономікою та можливістю точно реалізувати візуалізацію.
+                                        Наш інтер`єр - це ваш індивідуальний простір, зона комфорту в житті та роботі</p>
+                                    <a href="#discuss" class="top-slider__btn btn">Обговорити проект</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container top-slider__btn-box" data-slider="anim">
+                <div class="top-slider__arrows">
+                    <button data-arrow="left" class="top-slider__arrow top-slider__arrow--left">
+                        <svg class="top-slider__arrow-img" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.292893 7.29289C-0.0976314 7.68342 -0.0976315 8.31658 0.292892 8.7071L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34314C8.46159 1.95262 8.46159 1.31946 8.07107 0.928931C7.68054 0.538407 7.04738 0.538407 6.65686 0.928931L0.292893 7.29289ZM21 7L1 7L1 9L21 9L21 7Z" fill="white"/>
+                        </svg>
+                    </button>
+                    <button data-arrow="right" class="top-slider__arrow top-slider__arrow--right">
+                        <svg class="top-slider__arrow-img" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.7071 8.70711C21.0976 8.31658 21.0976 7.68342 20.7071 7.29289L14.3431 0.928932C13.9526 0.538408 13.3195 0.538408 12.9289 0.928932C12.5384 1.31946 12.5384 1.95262 12.9289 2.34315L18.5858 8L12.9289 13.6569C12.5384 14.0474 12.5384 14.6805 12.9289 15.0711C13.3195 15.4616 13.9526 15.4616 14.3431 15.0711L20.7071 8.70711ZM0 9H20V7H0V9Z" fill="white"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="top-slider__dots" data-slider="dots-box">
+                </div>
+            </div>
+        </section>
+        <section class="directions" id="directions">
+            <div class="container">
+                <div class="directions__inner">
+                    <h2 class="title directions__title animate animate-title"><span>Основні напрямки</span></h2>
+                    <ul class="directions__items">
+                        <li class="directions__item number">
+                            <h6 class="directions__item-title h5-style">Дизайн інтерєру</h6>
+                            <picture>
+                                <source type="image/webp" srcset="images/directions--1.webp">
+                                <img src="images/directions--1.jpg" alt="furniture" class="directions__img directions__img--1">
+                            </picture>
+                        </li>
+                        <li class="directions__item number">
+                            <h6 class="directions__item-title h5-style">Виробництво меблів</h6>
+                            <picture>
+                                <source type="image/webp" srcset="images/directions--2.webp">
+                                <img src="images/directions--2.jpg" alt="furniture" class="directions__img">
+                            </picture>
+                        </li>
+                        <li class="directions__item number">
+                            <h6 class="directions__item-title h5-style">Комплексне меблювання</h6>
+                            <picture>
+                                <source type="image/webp" srcset="images/directions--3.webp">
+                                <img src="images/directions--3.jpg" alt="furniture" class="directions__img">
+                            </picture>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="provide">
+            <div class="container">
+                <div class="provide__inner">
+                    <h2 class="title provide__title animate animate-title"><span>Ми забезпечемо вас</span></h2>
+                    <div class="provide__item">
+                        <img src="images/provide--1.svg" alt="furniture" class="provide__img provide__img--1">
+                        <p class="h5-medium provide__text">Меблями</p>
+                    </div>
+                    <div class="provide__item">
+                        <img src="images/provide--2.svg" alt="light" class="provide__img provide__img--2">
+                        <p class="h5-medium provide__text">Освітленням</p>
+                    </div>
+                    <div class="provide__item">
+                        <img src="images/provide--3.svg" alt="cooker" class="provide__img provide__img--3">
+                        <p class="h5-medium provide__text">Побутовою технікою</p>
+                    </div>
+                    <div class="provide__item">
+                        <img src="images/provide--4.svg" alt="doors" class="provide__img provide__img--4">
+                        <p class="h5-medium provide__text">Дверима</p>
+                    </div>
+                    <div class="provide__item">
+                        <img src="images/provide--5.svg" alt="furniture" class="provide__img provide__img--5">
+                        <p class="h5-medium provide__text">Стіновими панелями та
+                            підлоговим покриттям</p>
+                    </div>
+                    <div class="provide__item">
+                        <img src="images/provide--6.svg" alt="furniture" class="provide__img provide__img--6">
+                        <p class="h5-medium provide__text">Проектуванням</p>
+                    </div>
+                </div>
+            </div>
+  </section>
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about__inner">
+                    <h3 class="about__title title-h3 ">Проект Рінго Україна - створений виконувати об`єктні задачі комплексного меблювання житлових та комерційних приміщень. </h3>
+                    <div class="about__items">
+                        <p class="about__item text-18">Наш колектив націлений на результат - вчасно реалізувати проект
+                            на найвищому рівні. Ми забезпечуємо спокій замовника та вирішуємо будь-які задачі</p>
+                        <p class="about__item text-18">Рінго найкращий підрядник прораба, дизайнера, проект-менеджера або персональний помічник власника бізнесу, квартири чи салону</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about__video-inner">
+                <video autoplay loop muted class="about__video animate">
+                    <source src="video/about-1.webm" type="video/webm">
+                    <source src="video/about-1.mp4" type="video/mp4">
+                </video>
+                <video autoplay loop muted class="about__video about__video--2 animate">
+                    <source src="video/about-2.webm" type="video/webm">
+                    <source src="video/about-2.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+        <section class="benefits" id="benefits">
+                <div class="benefits__inner">
+                    <h2 class="title benefits__title animate animate-title"><span>Наші переваги</span></h2>
+                    <ul class="benefits__anim">
+                        <li class="benefits__item">
+                            <div class="container benefits__item-inner">
+                                <picture>
+                                    <source type="image/webp" srcset="images/benefits-1.webp">
+                                    <img src="images/benefits-1.png" alt="Мобільність" class="benefits__img">
+                                </picture>
+                                <div class="benefits__item-content">
+                                    <h4 class="benefits__item-title">Мобільність</h4>
+                                    <p class="benefits__text">Проводимо зустрічі на об`єктах в затишних закладах Києва</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="benefits__item">
+                            <div class="container benefits__item-inner">
+                                <picture>
+                                    <source type="image/webp" srcset="images/benefits-2.webp">
+                                    <img src="images/benefits-2.png" alt="Надійність" class="benefits__img">
+                                </picture>
+                                <div class="benefits__item-content">
+                                    <h4 class="benefits__item-title">Надійність</h4>
+                                    <p class="benefits__text">Система нашої роботи зосереджена на якості та термінах завершення проекту</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="benefits__item">
+                            <div class="container benefits__item-inner">
+                                <picture>
+                                    <source type="image/webp" srcset="images/benefits-3.webp">
+                                    <img src="images/benefits-3.png" alt="Якість" class="benefits__img">
+                                </picture>
+                                <div class="benefits__item-content">
+                                    <h4 class="benefits__item-title">Якість</h4>
+                                    <p class="benefits__text">Виготовляємо виключно з перевірених європейських брендів</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="benefits__item">
+                            <div class="container benefits__item-inner">
+                                <picture>
+                                    <source type="image/webp" srcset="images/benefits-4.webp">
+                                    <img src="images/benefits-4.png" alt="Професіоналіз" class="benefits__img">
+                                </picture>
+                                <div class="benefits__item-content">
+                                    <h4 class="benefits__item-title">Професіоналізм</h4>
+                                    <p class="benefits__text">Наша команда - це клуб професіоналів, об`єднаних в одній компанії</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="benefits__item">
+                            <div class="container benefits__item-inner">
+                                <picture>
+                                    <source type="image/webp" srcset="images/benefits-5.webp">
+                                    <img src="images/benefits-5.png" alt="Вигідність" class="benefits__img">
+                                </picture>
+                                <div class="benefits__item-content">
+                                    <h4 class="benefits__item-title">Вигідність</h4>
+                                    <p class="benefits__text">Ми відмовились від шоу-руму та офісу на користь вартості та мобільності</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+        </section>
+        <section class="discuss form-section" id="discuss">
+                <div class="form-content discuss__content" data-form="parent">
+                    <h2 class="title discuss__title form-title animate animate-title"><span>Обговоримо <br> ваш проект?</span></h2>
+                    <div class="form-change discuss__change" data-form="change">
+                        <p class="form-text discuss__text text-16">Заповніть форму і найближчим часом ми зв'яжемося з вами!</p>
+                        <form class="discuss__form form" data-form="thank">
+                            <input type="text" class="form-input discuss__input text-16" placeholder="Ім'я">
+                            <input type="tel" class="form-input discuss__input text-16" placeholder="Номер телефону">
+                            <label class="form-file-label discuss__file-label">
+                                <input type="file"  class="form-file-input discuss__file-input form-style">
+                                Прикріпити проект
+                            </label>
+                            <button class="form-btn discuss__btn btn" type="submit">Відправити</button>
+                            <label class="form-checkbox-label discuss__checkbox-label">
+                                <input type="checkbox" class="form-style form-checkbox discuss__checkbox" checked>
+                                <span class="form-checkbox-span discuss__checkbox-span"></span>
+                                Даю згоду на оброблення персональних даних
+                            </label>
+                        </form>
+                    </div>
+                    <div class="form-thanked questions__thanked" data-form="thank">
+                        <h5 class="form-thanked__title questions__thanked-title">Дякуємо, що звернулися до нас!</h5>
+                        <p class="form-thanked__text questions__thanked-text text-16">Наш менеджер зв'яжеться з вами протягом години.</p>
+                        <button class="btn form-thanked__btn--resend questions__thanked-btn--resend" data-form='resend'>Відправити повторно</button>
+                    </div>
+                </div>
+                <div class="form-img-box discuss__img-box">
+                    <picture>
+                        <source type="image/webp" srcset="images/form-1.webp">
+                        <img src="images/form-1.jpg" alt="discussing" class="form-img discuss__img">
+                    </picture>
+                </div>
+        </section>
+        <section class="stages" id="stages">
+            <div class="container">
+                <div class="stages__inner">
+                    <h2 class="stages__title title animate animate-title"><span>Етапи роботи</span></h2>
+                    <ul class="stages__list">
+                        <li class="stages__item number">
+                            <p class="stages__list-title text-18-semibold">Підписання договору</p>
+                            <p class="stages__list-text text-16">Визначаємось з бюджетом, матеріалами та фурнітурою.
+                                Вносимо правки в проект,
+                                підписуємо пакет документів.</p>
+                        </li>
+                        <li class="stages__item number">
+                            <p class="stages__list-title text-18-semibold">Виготовлення </p>
+                            <p class="stages__list-text text-16">Після підписання договору та визначення термінів, команда Рінго приступає до
+                                найцікавішого - виробництва!</p>
+                        </li>
+                        <li class="stages__item number">
+                            <p class="stages__list-title text-18-semibold">Встановлення</p>
+                            <p class="stages__list-text text-16">По готовності виробництва  починаємо монтаж на обєкті. У домовлений час виконуємо доставку та монтаж.</p>
+                        </li>
+                        <li class="stages__item number">
+                            <p class="stages__list-title text-18-semibold">Новосілля</p>
+                            <p class="stages__list-text text-16">По закінченню робимо перевірку та підписуємо акт закінчення робівт. </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="in-work" id="in-work">
+            <div class="container">
+                <h2 class="title in-work__title animate animate-title"><span>Зараз в роботі</span></h2>
+            </div>
+            <div class="in-work-slider" data-slider="parent-block" data-dots="true" data-center-mode="true">
+                <div class="in-work-slider__content-inner" data-slider="inner">
+                    <div class="in-work-slider__wrapper" data-slider="wrapper">
+                        <div class="in-work-slider__content">
+                            <div class="in-work-slider__item">
+                                <picture>
+                                    <source type="image/webp" srcset="images/in-work-1.webp">
+                                    <img src="images/in-work-1.jpg" alt="в роботі" class="in-work-slider__img">
+                                </picture>
+                                <div class="in-work-slider__item-content">
+                                    <h5 class="h5-style in-work-slider__title">Квартира ЖК Медовий</h5>
+                                    <p class="text-18 in-work-slider__text">1 етап</p>
+                                </div>
+                            </div>
+                            <div class="in-work-slider__item">
+                                <picture>
+                                    <source type="image/webp" srcset="images/in-work-2.webp">
+                                    <img src="images/in-work-2.jpg" alt="в роботі" class="in-work-slider__img">
+                                </picture>
+                                <div class="in-work-slider__item-content">
+                                    <h5 class="h5-style in-work-slider__title">Квартира ЖК Медовий</h5>
+                                    <p class="text-18 in-work-slider__text">3 етап</p>
+                                </div>
+                            </div>
+                            <div class="in-work-slider__item active">
+                                <picture>
+                                    <source type="image/webp" srcset="images/in-work-1.webp">
+                                    <img src="images/in-work-1.jpg" alt="в роботі" class="in-work-slider__img">
+                                </picture>
+                                <div class="in-work-slider__item-content">
+                                    <h5 class="h5-style in-work-slider__title">Квартира</h5>
+                                    <p class="text-18 in-work-slider__text">2 етап</p>
+                                </div>
+                            </div>
+                            <div class="in-work-slider__item">
+                                <picture>
+                                    <source type="image/webp" srcset="images/in-work-2.webp">
+                                    <img src="images/in-work-2.jpg" alt="в роботі" class="in-work-slider__img">
+                                </picture>
+                                <div class="in-work-slider__item-content">
+                                    <h5 class="h5-style in-work-slider__title">Квартира ЖК Мед</h5>
+                                    <p class="text-18 in-work-slider__text">2 етап</p>
+                                </div>
+                            </div>
+                            <div class="in-work-slider__item">
+                                <picture>
+                                    <source type="image/webp" srcset="images/in-work-1.webp">
+                                    <img src="images/in-work-1.jpg" alt="в роботі" class="in-work-slider__img">
+                                </picture>
+                                <div class="in-work-slider__item-content">
+                                    <h5 class="h5-style in-work-slider__title">Квартира ЖК Мед</h5>
+                                    <p class="text-18 in-work-slider__text">1 етап</p>
+                                </div>
+                            </div>
+                            <div class="in-work-slider__item">
+                                <picture>
+                                    <source type="image/webp" srcset="images/in-work-2.webp">
+                                    <img src="images/in-work-2.jpg" alt="в роботі" class="in-work-slider__img">
+                                </picture>
+                                <div class="in-work-slider__item-content">
+                                    <h5 class="h5-style in-work-slider__title">Квартира ЖК Мед</h5>
+                                    <p class="text-18 in-work-slider__text">3 етап</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="in-work-slider__btn-box" data-slider="anim">
+                    <div class="in-work-slider__arrows">
+                        <button data-arrow="left" class="in-work-slider__arrow in-work-slider__arrow--left">
+                            <svg class="in-work-slider__arrow-img" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.292893 7.29289C-0.0976314 7.68342 -0.0976315 8.31658 0.292892 8.7071L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34314C8.46159 1.95262 8.46159 1.31946 8.07107 0.928931C7.68054 0.538407 7.04738 0.538407 6.65686 0.928931L0.292893 7.29289ZM21 7L1 7L1 9L21 9L21 7Z" fill="#3D4A39"/>
+                            </svg>
+                        </button>
+                        <button data-arrow="right" class="in-work-slider__arrow in-work-slider__arrow--right">
+                            <svg class="in-work-slider__arrow-img" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.7071 8.70711C21.0976 8.31658 21.0976 7.68342 20.7071 7.29289L14.3431 0.928932C13.9526 0.538408 13.3195 0.538408 12.9289 0.928932C12.5384 1.31946 12.5384 1.95262 12.9289 2.34315L18.5858 8L12.9289 13.6569C12.5384 14.0474 12.5384 14.6805 12.9289 15.0711C13.3195 15.4616 13.9526 15.4616 14.3431 15.0711L20.7071 8.70711ZM0 9H20V7H0V9Z" fill="#3D4A39"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="in-work-slider__dots" data-slider="dots-box">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="present">
+            <div class="container present-container">
+                <div class="present__inner">
+                    <div class="present__item">
+                        <picture>
+                            <source type="image/webp" srcset="images/present-1.webp">
+                            <img src="images/present-1.png" alt="Тостер" class="present__img">
+                        </picture>
+                        <p class="present__item-text text-16">Подарунок</p>
+                    </div>
+                    <div class="present__item--center">
+                        <h2 class="present__title title animate animate-title"><span>Рінго роздає подарунки!</span></h2>
+                        <p class="present__text">При замовленні до нового року, отримай цінний подарунок для свого комфорту</p>
+                        <button class="btn present__btn" data-modal="modal" data-modal-num="1">Хочу подарунок</button>
+                    </div>
+                    <div class="present__item">
+                        <picture>
+                            <source type="image/webp" srcset="images/present-2.webp">
+                            <img src="images/present-2.png" alt="Мікрохвильова піч" class="present__img">
+                        </picture>
+                        <p class="present__item-text text-16">Подарунок</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="partners">
+            <div class="container">
+                <div class="partners__inner">
+                    <h2 class="partners__title title animate animate-title"><span>Наші партнери</span></h2>
+                    <div class="partners-slider" data-slider="parent-block">
+                        <div class="partners-slider__content-inner" data-slider="inner">
+                            <div class="partners-slider__wrapper" data-slider="wrapper">
+                                <div class="partners-slider__content">
+                                    <div class="partners-slider__item">
+                                        <picture>
+                                            <source type="image/webp" srcset="images/partner-1.webp">
+                                            <img class="partners-slider__item-img" src="images/partner-1.png" alt="partner">
+                                        </picture>
+                                    </div>
+                                    <div class="partners-slider__item">
+                                        <picture>
+                                            <source type="image/webp" srcset="images/partner-2.webp">
+                                            <img class="partners-slider__item-img" src="images/partner-2.png" alt="partner">
+                                        </picture>
+                                    </div>
+                                    <div class="partners-slider__item">
+                                        <picture>
+                                            <source type="image/webp" srcset="images/partner-3.webp">
+                                            <img class="partners-slider__item-img" src="images/partner-3.png" alt="partner">
+                                        </picture>
+                                    </div>
+                                    <div class="partners-slider__item">
+                                        <picture>
+                                            <source type="image/webp" srcset="images/partner-4.webp">
+                                            <img class="partners-slider__item-img" src="images/partner-4.png" alt="partner">
+                                        </picture>
+                                    </div>
+                                    <div class="partners-slider__item">
+                                        <picture>
+                                            <source type="image/webp" srcset="images/partner-5.webp">
+                                            <img class="partners-slider__item-img" src="images/partner-5.png" alt="partner">
+                                        </picture>
+                                    </div>
+                                    <div class="partners-slider__item">
+                                        <picture>
+                                            <source type="image/webp" srcset="images/partner-6.webp">
+                                            <img class="partners-slider__item-img" src="images/partner-6.png" alt="partner">
+                                        </picture>
+                                    </div>
+                                    <div class="partners-slider__item">
+                                        <picture>
+                                            <source type="image/webp" srcset="images/partner-7.webp">
+                                            <img class="partners-slider__item-img" src="images/partner-7.png" alt="partner">
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="partners-slider__btn-box" data-slider="anim">
+                            <div class="partners-slider__arrows">
+                                <button data-arrow="left" class="partners-slider__arrow partners-slider__arrow--left">
+                                    <svg class="partners-slider__arrow-img" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.292893 7.29289C-0.0976314 7.68342 -0.0976315 8.31658 0.292892 8.7071L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34314C8.46159 1.95262 8.46159 1.31946 8.07107 0.928931C7.68054 0.538407 7.04738 0.538407 6.65686 0.928931L0.292893 7.29289ZM21 7L1 7L1 9L21 9L21 7Z" fill="#3D4A39"/>
+                                    </svg>
+                                </button>
+                                <button data-arrow="right" class="partners-slider__arrow partners-slider__arrow--right">
+                                    <svg class="partners-slider__arrow-img" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.292893 7.29289C-0.0976314 7.68342 -0.0976315 8.31658 0.292892 8.7071L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34314C8.46159 1.95262 8.46159 1.31946 8.07107 0.928931C7.68054 0.538407 7.04738 0.538407 6.65686 0.928931L0.292893 7.29289ZM21 7L1 7L1 9L21 9L21 7Z" fill="#3D4A39"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="questions form-section">
+            <div class="form-content questions__content" data-form="parent">
+                <h2 class="title questions__title form-title animate animate-title"><span>Залишилися <br>  питання?</span></h2>
+                <div class="form-change questions__change" data-form="change">
+                    <p class="form-text questions__text text-16">Отримай безкоштовну консультацію менеджера та прорахунок проекту </p>
+                    <form class="discuss__form form" data-form="thank">
+                        <input type="text" class="form-input questions__input text-16" placeholder="Ім'я">
+                        <input type="tel" class="form-input questions__input questions__input--2 text-16" placeholder="Номер телефону">
+                        <button class="form-btn questions__btn btn" type="submit">Відправити</button>
+                        <label class="form-checkbox-label questions__checkbox-label">
+                            <input type="checkbox" class="form-style form-checkbox questions__checkbox" checked>
+                            <span class="form-checkbox-span questions__checkbox-span"></span>
+                            Даю згоду на оброблення персональних даних
+                        </label>
+                    </form>
+                </div>
+                <div class="form-thanked questions__thanked" data-form="thank">
+                    <h5 class="form-thanked__title questions__thanked-title">Дякуємо, що звернулися до нас!</h5>
+                    <p class="form-thanked__text questions__thanked-text text-16">Наш менеджер зв'яжеться з вами протягом години.</p>
+                    <button class="btn form-thanked__btn--resend questions__thanked-btn--resend" data-form='resend'>Відправити повторно</button>
+                </div>
+            </div>
+            <div class="form-img-box questions__img-box">
+                <picture>
+                    <source type="image/webp" srcset="images/form-2.webp">
+                    <img src="images/form-2.jpg" alt="discussing" class="form-img questions__img">
+                </picture>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+            <div class="footer__top">
+                <div class="container">
+                    <div class="footer__top-inner">
+                        <div class="footer__top-left">
+                            <a href="#" class="footer__logo-link logo-link">
+                                <img src="images/logo.svg" alt="logo" class="logo footer__logo">
+                            </a>
+                            <div class="footer__social">
+                                <p class="footer__social-text footer-text">Соцмережі: </p>
+                                <ul class="footer__social-list">
+                                    <li class="footer__social-item social-item">
+                                        <a href="#" class="footer__social-link social-link">
+                                            <svg class="footer__social-image social-image" width="24" height="24" viewBox="0 -1 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path class="footer__social-image__path social-image__path" d="M20.9469 8.305C20.9369 7.54762 20.7951 6.79777 20.5279 6.089C20.2963 5.49115 19.9425 4.9482 19.4891 4.49483C19.0358 4.04146 18.4928 3.68765 17.8949 3.456C17.1953 3.19336 16.4561 3.05134 15.7089 3.036C14.7469 2.993 14.4419 2.981 11.9999 2.981C9.55795 2.981 9.24495 2.981 8.28995 3.036C7.54311 3.05145 6.8043 3.19347 6.10495 3.456C5.50701 3.68749 4.96397 4.04124 4.51058 4.49463C4.05719 4.94802 3.70344 5.49106 3.47195 6.089C3.20878 6.78813 3.06707 7.52711 3.05295 8.274C3.00995 9.237 2.99695 9.542 2.99695 11.984C2.99695 14.426 2.99695 14.738 3.05295 15.694C3.06795 16.442 3.20895 17.18 3.47195 17.881C3.70383 18.4788 4.05784 19.0216 4.51138 19.4748C4.96492 19.928 5.50801 20.2816 6.10595 20.513C6.80338 20.7862 7.54232 20.9384 8.29095 20.963C9.25395 21.006 9.55895 21.019 12.0009 21.019C14.4429 21.019 14.7559 21.019 15.7109 20.963C16.4581 20.9483 17.1973 20.8066 17.8969 20.544C18.4946 20.3121 19.0375 19.9582 19.4908 19.5048C19.9441 19.0515 20.298 18.5087 20.5299 17.911C20.7929 17.211 20.9339 16.473 20.9489 15.724C20.9919 14.762 21.0049 14.457 21.0049 12.014C21.0029 9.572 21.0029 9.262 20.9469 8.305ZM11.9939 16.602C9.43995 16.602 7.37095 14.533 7.37095 11.979C7.37095 9.425 9.43995 7.356 11.9939 7.356C13.22 7.356 14.3959 7.84306 15.2629 8.71004C16.1299 9.57703 16.6169 10.7529 16.6169 11.979C16.6169 13.2051 16.1299 14.381 15.2629 15.248C14.3959 16.1149 13.22 16.602 11.9939 16.602ZM16.8009 8.263C16.6593 8.26313 16.5191 8.23534 16.3883 8.18121C16.2574 8.12708 16.1385 8.04768 16.0384 7.94755C15.9383 7.84743 15.8589 7.72854 15.8047 7.59769C15.7506 7.46684 15.7228 7.3266 15.7229 7.185C15.7229 7.0435 15.7508 6.90339 15.805 6.77266C15.8591 6.64193 15.9385 6.52315 16.0385 6.42309C16.1386 6.32304 16.2574 6.24367 16.3881 6.18952C16.5188 6.13537 16.6589 6.1075 16.8004 6.1075C16.9419 6.1075 17.0821 6.13537 17.2128 6.18952C17.3435 6.24367 17.4623 6.32304 17.5624 6.42309C17.6624 6.52315 17.7418 6.64193 17.7959 6.77266C17.8501 6.90339 17.8779 7.0435 17.8779 7.185C17.8779 7.781 17.3959 8.263 16.8009 8.263Z" fill="#AE7B3C"/>
+                                                <path class="footer__social-image__path social-image__path" d="M11.994 14.982C13.6525 14.982 14.997 13.6375 14.997 11.979C14.997 10.3205 13.6525 8.976 11.994 8.976C10.3355 8.976 8.99097 10.3205 8.99097 11.979C8.99097 13.6375 10.3355 14.982 11.994 14.982Z" fill="#AE7B3C"/>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="footer__social-item social-item">
+                                        <a href="#" class="footer__social-link social-link">
+                                            <svg class="header__social-image social-image"  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path class="header__social-image__path social-image__path" d="M9.55277 22.5746V12.9204H7V9.44441H9.55277V6.47548C9.55277 4.14247 11.0607 2 14.5353 2C15.9421 2 16.9824 2.13487 16.9824 2.13487L16.9004 5.38083C16.9004 5.38083 15.8395 5.3705 14.6818 5.3705C13.4288 5.3705 13.228 5.94793 13.228 6.90631V9.44441H17L16.8359 12.9204H13.228V22.5746H9.55277Z" fill="#AE7B3C"/>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <ul class="footer__menu-list">
+                            <li class="footer__menu-list__item"><a href="#directions" class="footer__list-link">Основні напрямки</a></li>
+                            <li class="footer__menu-list__item"><a href="#about" class="footer__list-link">Про компанію</a></li>
+                            <li class="footer__menu-list__item"><a href="#benefits" class="footer__list-link">Переваги</a></li>
+                            <li class="footer__menu-list__item"><a href="#stages" class="footer__list-link">Етапи роботи</a></li>
+                            <li class="footer__menu-list__item"><a href="#in-work" class="footer__list-link">Зараз в роботі</a></li>
+                            <li class="footer__menu-list__item"><button class="footer__list-link footer__list-btn" data-modal="modal" data-modal-num="3">Стати партнером</button></li>
+                        </ul>
+                        <div class="footer__top-right">
+                            <a href="tel:380676615415" class="footer__phone phone">+380 67661 5415</a>
+                            <button class="btn footer__btn" data-modal="modal" data-modal-num="2">На каву з менеджером!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="container">
+            <div class="footer__partners footer-partners">
+                <p class="footer-partners__title text-18-semibold">Бренди комплектуючих</p>
+                <div class="footer-partners__items">
+                    <div class="footer-partners__item">
+                        <picture>
+                            <source type="image/webp" srcset="images/partner-1.webp">
+                            <img class="footer-partners__item-img" src="images/partner-1.png" alt="partner">
+                        </picture>
+                    </div>
+                    <div class="footer-partners__item">
+                        <picture>
+                            <source type="image/webp" srcset="images/partner-2.webp">
+                            <img class="footer-partners__item-img" src="images/partner-2.png" alt="partner">
+                        </picture>
+                    </div>
+                    <div class="footer-partners__item">
+                        <picture>
+                            <source type="image/webp" srcset="images/partner-5.webp">
+                            <img class="footer-partners__item-img" src="images/partner-5.png" alt="partner">
+                        </picture>
+                    </div>
+                    <div class=footer-partners__item">
+                        <picture>
+                            <source type="image/webp" srcset="images/partner-6.webp">
+                            <img class="footer-partners__item-img" src="images/partner-6.png" alt="partner">
+                        </picture>
+                    </div>
+                    <div class="footer-partners__item">
+                        <picture>
+                            <source type="image/webp" srcset="images/partner-7.webp">
+                            <img class="footer-partners__item-img" src="images/partner-7.png" alt="partner">
+                        </picture>
+                    </div>
+                    <div class="footer-partners__item">
+                        <picture>
+                            <source type="image/webp" srcset="images/partner-8.webp">
+                            <img class="footer-partners__item-img" src="images/partner-8.png" alt="partner">
+                        </picture>
+                    </div>
+                    <div class="footer-partners__item">
+                        <picture>
+                            <source type="image/webp" srcset="images/partner-9.webp">
+                            <img class="footer-partners__item-img" src="images/partner-9.png" alt="partner">
+                        </picture>
+                    </div>
+                    <div class="footer-partners__item">
+                        <picture>
+                            <source type="image/webp" srcset="images/partner-10.webp">
+                            <img class="footer-partners__item-img" src="images/partner-10.png" alt="partner">
+                        </picture>
+                    </div>
+                    <div class="footer-partners__item">
+                        <picture>
+                            <source type="image/webp" srcset="images/partner-11.webp">
+                            <img class="footer-partners__item-img" src="images/partner-11.png" alt="partner">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+            <p class="footer__copy footer-text">© 2022 Ringo</p>
+        </div>
+    </footer>
+
+
+
+
+    <div class="modal">
+        <div class="modal__bg"></div>
+        <div class="modal__inner">
+            <h4 class="modal__title">Хочете отримати подарунок?</h4>
+            <p class="modal__text form-text text-16">Заповніть форму,  і ми звяжемося та розповімо про умови акції</p>
+            <form class="modal__form">
+                <input type="text" class="form-input modal__input text-16 modal__input--1" placeholder="Ім'я">
+                <input type="tel" class="form-input modal__input  text-16 modal__input--2" placeholder="Номер телефону">
+                <textarea class="modal__textarea form-input modal__input text-16 modal__input--3" placeholder="Тема"></textarea>
+                <button type="submit" class="modal__btn btn dark-btn">Відправити</button>
+                <label class="form-checkbox-label modal__checkbox-label">
+                    <input type="checkbox" class="form-style form-checkbox modal__checkbox" checked>
+                    <span class="form-checkbox-span modal__checkbox-span"></span>
+                    Даю згоду на оброблення персональних даних
+                </label>
+            </form>
+            <button class="btn__modal--close">
+                Oк
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+    
+    <script src="js/main.min.js"></script>
+</body>
+</html>
