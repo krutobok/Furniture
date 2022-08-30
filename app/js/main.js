@@ -48,17 +48,16 @@ function check_webp_feature(feature, callback) {
 // example usage
 check_webp_feature('lossy', function (feature, isSupported) {
     if (isSupported) {
-        topSliderItems.forEach(elem => {
-            let bg = elem.style.backgroundImage.toString()
-            bg = bg.slice(0, -5)+'webp")'
-            elem.style.backgroundImage =
-                bg + ', linear-gradient(180deg, rgba(0, 0, 0, 0.2) -13.19%, rgba(0, 0, 0, 0.85) 94.01%)'
-            console.log( bg)
-         })
-    }
-    else{
         topSliderItems.forEach(elem => elem.style.backgroundImage =
             elem.style.backgroundImage + ', linear-gradient(180deg, rgba(0, 0, 0, 0.2) -13.19%, rgba(0, 0, 0, 0.85) 94.01%)')
+    }
+    else{
+        topSliderItems.forEach(elem => {
+            let bg = elem.style.backgroundImage.toString()
+            bg = bg.slice(0, -6)+'jpg")'
+            elem.style.backgroundImage =
+                bg + ', linear-gradient(180deg, rgba(0, 0, 0, 0.2) -13.19%, rgba(0, 0, 0, 0.85) 94.01%)'
+        })
     }
 });
 
