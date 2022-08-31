@@ -68,7 +68,7 @@ function slider(sliderContent) {
     const slider = document.querySelector(sliderContent)
     const sliderInner = slider.closest('[data-slider="wrapper"]')
     const parentBlock =   slider.closest('[data-slider="parent-block"]')
-    sliderInner.style.transition = 'left .5s'
+    sliderInner.style.transition = 'transform .5s'
     let items = slider.children
     let width = window.getComputedStyle(items[0]).getPropertyValue('width')
     width = parseInt(width.substring(0, width.length-2))
@@ -110,14 +110,14 @@ function slider(sliderContent) {
                 centerSliderCounter++
             }
             sliderPos = -(width*centerSliderCounter-((document.documentElement.clientWidth-width)/2))
-            slider.style.left = -sliderPos + (-2*width + (((document.documentElement.clientWidth-width)/2))) + 'px'
-            sliderInner.style.left = -(width*centerSliderCounter-((document.documentElement.clientWidth-width)/2)) + 'px'
+            slider.style.transform = 'translateX(' + (-sliderPos + (-2*width + (((document.documentElement.clientWidth-width)/2)))) + 'px)'
+            sliderInner.style.transform = 'translateX(' + (-(width*centerSliderCounter-((document.documentElement.clientWidth-width)/2))) + 'px)'
         }
     }
     else{
         isCenterMode = false
         sliderPos = -width-margin
-        sliderInner.style.left = -width-margin + 'px'
+        sliderInner.style.transform = 'translateX(' + -width-margin + 'px)'
     }
 
     if (parentBlock.hasAttribute('data-autoplay')){
@@ -176,7 +176,7 @@ function slider(sliderContent) {
                 items[(currentSlide+i-1)%items.length].style.order = (i+2).toString()
             }
             if (isCenterMode){
-                slider.style.left = -sliderPos + (-2*width + (((document.documentElement.clientWidth-width)/2))) + 'px'
+                slider.style.transform = 'translateX(' + (-sliderPos + (-2*width + (((document.documentElement.clientWidth-width)/2)))) + 'px)'
                 for (let i = 0; i < items.length; i++){
                     if (items[i].style.order === '4'){
                         items[i].classList.add('active')
@@ -184,7 +184,7 @@ function slider(sliderContent) {
                 }
             }
             else{
-                slider.style.left = -sliderPos - (width + margin) + 'px'
+                slider.style.transform = 'translateX(' + (-sliderPos - (width + margin)) + 'px)'
             }
             if (isDots){
                 dots.forEach(elem => elem.classList.remove("active"))
@@ -212,13 +212,13 @@ function slider(sliderContent) {
     }
     function moveRight(){
         sliderPos = sliderPos - (width + margin)
-        sliderInner.style.left = sliderPos + 'px'
+        sliderInner.style.transform = 'translateX(' + sliderPos + 'px)'
         slideCounter += 1
         move()
     }
     function moveLeft(){
         sliderPos = sliderPos + (width + margin)
-        sliderInner.style.left = sliderPos + 'px'
+        sliderInner.style.transform = 'translateX(' + sliderPos + 'px)'
         slideCounter -= 1
         move()
     }

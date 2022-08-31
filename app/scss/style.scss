@@ -60,6 +60,8 @@
     display: flex;
     align-items: flex-start;
     position: absolute;
+    left: 0;
+    top: 0;
   }
   &__content-inner{
     overflow-x: hidden;
@@ -69,6 +71,8 @@
   &__wrapper{
     position: absolute;
     min-height: 687px;
+    left: 0;
+    top: 0;
   }
   &__item{
     padding-top: 120px;
