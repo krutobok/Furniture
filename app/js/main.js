@@ -7,6 +7,7 @@ const menuBtn = document.querySelector('.header__mobile-menu')
 const menu = document.querySelector('.header__menu-list')
 const menuRight = document.querySelector('.header__right')
 const menuInner = document.querySelector('.header__inner')
+let clientWidth = document.documentElement.clientWidth
 
 menuBtn.addEventListener('click', menuFunction)
 
@@ -61,13 +62,13 @@ check_webp_feature('lossy', function (feature, isSupported) {
     }
 });
 
-
+topSliderItems.forEach(elem => elem.style.width = clientWidth + 'px')
 
 
 function slider(sliderContent) {
     const slider = document.querySelector(sliderContent)
     const sliderInner = slider.closest('[data-slider="wrapper"]')
-    const parentBlock =   slider.closest('[data-slider="parent-block"]')
+    const parentBlock = slider.closest('[data-slider="parent-block"]')
     sliderInner.style.transition = 'transform .5s'
     let items = slider.children
     let width = window.getComputedStyle(items[0]).getPropertyValue('width')
@@ -78,11 +79,16 @@ function slider(sliderContent) {
     const btnRight = parentBlock.querySelector('[data-arrow="right"]')
     const btnLeft = parentBlock.querySelector('[data-arrow="left"]')
     let animSlider
+    let parentBlockWidth = window.getComputedStyle(parent).getPropertyValue('width')
+    parentBlockWidth = parseInt(parentBlockWidth.substring(0, parentBlockWidth.length-2))
     if (parentBlock.hasAttribute('data-anim')){
         if(parentBlock.getAttribute('data-anim') === 'true'){
             animSlider = document.querySelector('.top-slider__btn-box')
         }
     }
+    Array.prototype.forEach.call(items, item => {
+        item.style.userSelect = 'none'
+    });
     let slideCounter = 1
     let sliderPos
     let currentSlide = 1
@@ -94,7 +100,10 @@ function slider(sliderContent) {
     let interval
     let isAutoplay
     let time
+    let posDifference
     let centerSliderCounter = 0
+    let moveTime = 500
+    let currentMoveTime = moveTime
     if (parentBlock.hasAttribute('data-dots')){
         if (parentBlock.getAttribute('data-dots') === 'true'){
             isDots = true
@@ -109,15 +118,20 @@ function slider(sliderContent) {
             for (let i = 0; i < document.documentElement.clientWidth/width; i++){
                 centerSliderCounter++
             }
-            sliderPos = -(width*centerSliderCounter-((document.documentElement.clientWidth-width)/2))
-            slider.style.transform = 'translateX(' + (-sliderPos + (-2*width + (((document.documentElement.clientWidth-width)/2)))) + 'px)'
-            sliderInner.style.transform = 'translateX(' + (-(width*centerSliderCounter-((document.documentElement.clientWidth-width)/2))) + 'px)'
+            sliderPos = -(width*centerSliderCounter-((parentBlockWidth-width)/2))
+            slider.style.transform = 'translateX(' + (-sliderPos + (-2*width + (((parentBlockWidth-width)/2)))) + 'px)'
+            sliderInner.style.transform = 'translateX(' + (-(width*centerSliderCounter-((parentBlockWidth-width)/2))) + 'px)'
+        }
+        else{
+            isCenterMode = false
+            sliderPos = -width-margin
+            sliderInner.style.transform = 'translateX(' + (-width-margin) + 'px)'
         }
     }
     else{
         isCenterMode = false
         sliderPos = -width-margin
-        sliderInner.style.transform = 'translateX(' + -width-margin + 'px)'
+        sliderInner.style.transform = 'translateX(' + (-width-margin) + 'px)'
     }
 
     if (parentBlock.hasAttribute('data-autoplay')){
@@ -140,10 +154,12 @@ function slider(sliderContent) {
                 let id = parseInt(elem.getAttribute('data-id'))
                 if (id > currentSlide){
                     currentRight = Math.abs(id - currentSlide)
+                    currentMoveTime = moveTime/currentRight
                     moveRight()
                 }
                 else if (id < currentSlide){
                     currentLeft = Math.abs(currentSlide - id)
+                    currentMoveTime = moveTime/currentLeft
                     moveLeft()
                 }
 
@@ -152,7 +168,10 @@ function slider(sliderContent) {
     }
 
 
-    function move() {
+    function move(transition = true) {
+        if (transition === true){
+            sliderInner.style.transition = 'transform .5s'
+        }
         if (isAutoplay){
             animSlider.classList.remove('active')
             clearInterval(interval)
@@ -176,7 +195,7 @@ function slider(sliderContent) {
                 items[(currentSlide+i-1)%items.length].style.order = (i+2).toString()
             }
             if (isCenterMode){
-                slider.style.transform = 'translateX(' + (-sliderPos + (-2*width + (((document.documentElement.clientWidth-width)/2)))) + 'px)'
+                slider.style.transform = 'translateX(' + (-sliderPos + (-2*width + (((parentBlockWidth-width)/2)))) + 'px)'
                 for (let i = 0; i < items.length; i++){
                     if (items[i].style.order === '4'){
                         items[i].classList.add('active')
@@ -195,12 +214,21 @@ function slider(sliderContent) {
                 if (currentLeft > 0){
                     moveLeft()
                 }
+                else{
+                    currentMoveTime = moveTime
+                }
             }
-            if (currentRight > 0){
+            else if (currentRight > 0){
                 currentRight--
                 if (currentRight > 0){
                     moveRight()
                 }
+                else{
+                    currentMoveTime = moveTime
+                }
+            }
+            else{
+                currentMoveTime = moveTime
             }
             if (isAutoplay){
                 if (interval === null){
@@ -208,19 +236,19 @@ function slider(sliderContent) {
                     animSlider.classList.add('active')
                 }
             }
-        }, 500)
+        }, currentMoveTime)
     }
-    function moveRight(){
+    function moveRight(transition = true){
         sliderPos = sliderPos - (width + margin)
         sliderInner.style.transform = 'translateX(' + sliderPos + 'px)'
         slideCounter += 1
-        move()
+        move(transition)
     }
-    function moveLeft(){
+    function moveLeft(transition = true){
         sliderPos = sliderPos + (width + margin)
         sliderInner.style.transform = 'translateX(' + sliderPos + 'px)'
         slideCounter -= 1
-        move()
+        move(transition)
     }
     btnRight.addEventListener('click', ()=> {
         moveRight()
@@ -228,43 +256,99 @@ function slider(sliderContent) {
     btnLeft.addEventListener('click', ()=> {
         moveLeft()
     })
-    let pos
-    parent.addEventListener('touchstart', function() {
-        pos = 0
-    })
-    parent.addEventListener('touchmove', function(e) {
-        let touchLocation = e.targetTouches[0];
-        if (pos === 0){
-            pos = touchLocation.pageX
+    parent.addEventListener('touchstart', function(e) {
+        let pos = e.targetTouches[0];
+        let posEnd = pos.pageX
+        sliderInner.style.transition = 'none'
+        let touchLocation = pos
+        parent.ontouchmove = (e) =>  {
+            touchLocation = e.targetTouches[0];
+            posDifference = touchLocation.pageX - pos.pageX
+            sliderInner.style.transform = 'translateX(' + (sliderPos + posDifference) + 'px)'
+            if (posDifference >= width+margin){
+                currentMoveTime = 0
+                pos = e.targetTouches[0]
+                moveLeft(false)
+            }else if (posDifference <= -width-margin){
+                currentMoveTime = 0
+                pos = e.targetTouches[0]
+                moveRight(false)
+            }
         }
-        let posEnd
         parent.ontouchend = () => {
             posEnd = touchLocation.pageX
-            if (pos > posEnd){
+            if (pos.pageX > posEnd){
                 moveRight()
             }
-            if (pos < posEnd){
+            else if (pos.pageX < posEnd){
                 moveLeft()
             }
+            parent.ontouchmove = null
+            parent.ontouchend = null
         }
     })
     parent.onmousedown = e =>{
         let pos = e.pageX
-        let posEnd
-        parent.onmouseup = (e) => {
-            posEnd = e.pageX
-            if (pos > posEnd){
+        sliderInner.style.transition = 'none'
+        posDifference = 0
+        if (isAutoplay){
+            clearInterval(interval)
+            interval = null
+        }
+        parent.onmousemove = (e) =>{
+            posDifference = e.pageX - pos
+            sliderInner.style.transform = 'translateX(' + (+sliderPos + posDifference) + 'px)'
+            if (posDifference >= width+margin){
+                currentMoveTime = 0
+                pos = e.pageX
+                moveLeft(false)
+            }else if (posDifference <= -width-margin){
+                currentMoveTime = 0
+                pos = e.pageX
+                moveRight(false)
+            }
+        }
+        parent.onmouseup = () => {
+            mouseUp()
+        }
+        parent.onmouseleave = () => {
+            mouseUp()
+        }
+        function mouseUp(){
+            if (posDifference < 0){
                 moveRight()
             }
-            if (pos < posEnd){
+            else if (posDifference > 0){
                 moveLeft()
             }
+            parent.onmouseleave = null
+            parent.onmousemove = null
+            parent.onmouseup = null
         }
     }
     if (isAutoplay){
         interval = setInterval(moveRight, time*1000)
         animSlider.classList.add('active')
     }
+    window.addEventListener('resize', ()=> {
+        width = window.getComputedStyle(items[0]).getPropertyValue('width')
+        width = parseInt(width.substring(0, width.length-2))
+        margin = window.getComputedStyle(items[0]).getPropertyValue('margin-right')
+        margin = parseInt(margin.substring(0,margin.length-2))
+        parentBlockWidth = window.getComputedStyle(parent).getPropertyValue('width')
+        parentBlockWidth = parseInt(parentBlockWidth.substring(0, parentBlockWidth.length-2))
+        sliderInner.style.transition = 'none'
+        if (isCenterMode){
+            sliderPos = -(width*centerSliderCounter*currentSlide-((parentBlockWidth-width)/2))
+            slider.style.transform = 'translateX(' + (-sliderPos + (-2*width + (((parentBlockWidth-width)/2)))) + 'px)'
+            sliderInner.style.transform = 'translateX(' + sliderPos + 'px)'
+        }
+        else{
+            sliderPos = currentSlide*width
+            sliderInner.style.transform = 'translateX(' + sliderPos + 'px)'
+            slider.style.transform = 'translateX(' + (-sliderPos - (width + margin)) + 'px)'
+        }
+    })
 }
 
 
@@ -277,6 +361,7 @@ const modalBtnClose = document.querySelector('.btn__modal--close')
 // const modalBtnSubmit = document.querySelector('.modal__btn')
 const modalTitle = document.querySelector('.modal__title')
 const modalTextarea = document.querySelector('.modal__textarea')
+const modalTextareaLabel = document.querySelector('#textarea-label')
 const modalCheckbox = document.querySelector('.modal__checkbox')
 const modalText = document.querySelector('.modal__text ')
 const input1 = document.querySelector('.modal__input--1')
@@ -299,11 +384,13 @@ function modal(){
                 modalText.textContent = 'Заповніть форму, і ми звяжемося та обговоримо з вами усі деталі'
                 modalTextarea.classList.add('active')
                 modalTextarea.setAttribute('placeholder', 'Тема')
+                modalTextareaLabel.textContent =  'Тема'
             }
             else if (btn.getAttribute('data-modal-num') === '3'){
                 modalTitle.textContent = 'Хочете стати нашим партнером?'
                 modalText.textContent = 'Заповніть форму, і ми звяжемося та обговоримо з вами усі деталі'
                 modalTextarea.classList.add('active')
+                modalTextareaLabel.textContent =  'Коротко про себе'
                 modalTextarea.setAttribute('placeholder', 'Коротко про себе')
             }
         })
@@ -562,6 +649,8 @@ slider('.in-work-slider__content')
 slider('.partners-slider__content')
 
 window.addEventListener('resize',  ()=> {
+    clientWidth = document.documentElement.clientWidth
+    topSliderItems.forEach(elem => elem.style.width = clientWidth + 'px')
     menuResize()
     if (document.documentElement.clientWidth > 839){
         benefitsPrev()
@@ -573,6 +662,3 @@ window.addEventListener('resize',  ()=> {
         benefitsAnimation.removeEventListener('mouseout', benefitsMouseout)
     }
 });
-
-
-
