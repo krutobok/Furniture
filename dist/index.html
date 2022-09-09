@@ -265,8 +265,10 @@
                     <div class="form-change discuss__change" data-form="change">
                         <p class="form-text discuss__text text-16">Заповніть форму і найближчим часом ми зв'яжемося з вами!</p>
                         <form class="discuss__form form" data-form="thank">
-                            <input type="text" class="form-input discuss__input text-16" placeholder="Ім'я">
-                            <input type="tel" class="form-input discuss__input text-16" placeholder="Номер телефону">
+                            <label class="visually-hidden" for="name-1">Ім'я</label>
+                            <input id="name-1" type="text" class="form-input discuss__input text-16" placeholder="Ім'я">
+                            <label class="visually-hidden" for="tel-1">Номер телефону</label>
+                            <input id="tel-1" type="tel" class="form-input discuss__input text-16" placeholder="Номер телефону">
                             <label class="form-file-label discuss__file-label">
                                 <input type="file"  class="form-file-input discuss__file-input form-style">
                                 Прикріпити проект
@@ -324,87 +326,89 @@
             <div class="container">
                 <h2 class="title in-work__title animate animate-title"><span>Зараз в роботі</span></h2>
             </div>
-            <div class="in-work-slider" data-slider="parent-block" data-dots="true" data-center-mode="true">
-                <div class="in-work-slider__content-inner" data-slider="inner">
-                    <div class="in-work-slider__wrapper" data-slider="wrapper">
-                        <div class="in-work-slider__content">
-                            <div class="in-work-slider__item">
-                                <picture>
-                                    <source type="image/webp" srcset="images/in-work-1.webp">
-                                    <img src="images/in-work-1.jpg" alt="в роботі" class="in-work-slider__img">
-                                </picture>
-                                <div class="in-work-slider__item-content">
-                                    <h5 class="h5-style in-work-slider__title">Квартира ЖК Медовий</h5>
-                                    <p class="text-18 in-work-slider__text">1 етап</p>
+            <div class="container container-big">
+                <div class="in-work-slider" data-slider="parent-block" data-dots="true" data-center-mode="true">
+                    <div class="in-work-slider__content-inner" data-slider="inner">
+                        <div class="in-work-slider__wrapper" data-slider="wrapper">
+                            <div class="in-work-slider__content">
+                                <div class="in-work-slider__item">
+                                    <picture>
+                                        <source type="image/webp" srcset="images/in-work-1.webp">
+                                        <img src="images/in-work-1.jpg" alt="в роботі" class="in-work-slider__img">
+                                    </picture>
+                                    <div class="in-work-slider__item-content">
+                                        <h5 class="h5-style in-work-slider__title">Квартира ЖК Медовий</h5>
+                                        <p class="text-18 in-work-slider__text">1 етап</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="in-work-slider__item">
-                                <picture>
-                                    <source type="image/webp" srcset="images/in-work-2.webp">
-                                    <img src="images/in-work-2.jpg" alt="в роботі" class="in-work-slider__img">
-                                </picture>
-                                <div class="in-work-slider__item-content">
-                                    <h5 class="h5-style in-work-slider__title">Квартира ЖК Медовий</h5>
-                                    <p class="text-18 in-work-slider__text">3 етап</p>
+                                <div class="in-work-slider__item">
+                                    <picture>
+                                        <source type="image/webp" srcset="images/in-work-2.webp">
+                                        <img src="images/in-work-2.jpg" alt="в роботі" class="in-work-slider__img">
+                                    </picture>
+                                    <div class="in-work-slider__item-content">
+                                        <h5 class="h5-style in-work-slider__title">Квартира ЖК Медовий</h5>
+                                        <p class="text-18 in-work-slider__text">3 етап</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="in-work-slider__item active">
-                                <picture>
-                                    <source type="image/webp" srcset="images/in-work-1.webp">
-                                    <img src="images/in-work-1.jpg" alt="в роботі" class="in-work-slider__img">
-                                </picture>
-                                <div class="in-work-slider__item-content">
-                                    <h5 class="h5-style in-work-slider__title">Квартира</h5>
-                                    <p class="text-18 in-work-slider__text">2 етап</p>
+                                <div class="in-work-slider__item active">
+                                    <picture>
+                                        <source type="image/webp" srcset="images/in-work-1.webp">
+                                        <img src="images/in-work-1.jpg" alt="в роботі" class="in-work-slider__img">
+                                    </picture>
+                                    <div class="in-work-slider__item-content">
+                                        <h5 class="h5-style in-work-slider__title">Квартира</h5>
+                                        <p class="text-18 in-work-slider__text">2 етап</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="in-work-slider__item">
-                                <picture>
-                                    <source type="image/webp" srcset="images/in-work-2.webp">
-                                    <img src="images/in-work-2.jpg" alt="в роботі" class="in-work-slider__img">
-                                </picture>
-                                <div class="in-work-slider__item-content">
-                                    <h5 class="h5-style in-work-slider__title">Квартира ЖК Мед</h5>
-                                    <p class="text-18 in-work-slider__text">2 етап</p>
+                                <div class="in-work-slider__item">
+                                    <picture>
+                                        <source type="image/webp" srcset="images/in-work-2.webp">
+                                        <img src="images/in-work-2.jpg" alt="в роботі" class="in-work-slider__img">
+                                    </picture>
+                                    <div class="in-work-slider__item-content">
+                                        <h5 class="h5-style in-work-slider__title">Квартира ЖК Мед</h5>
+                                        <p class="text-18 in-work-slider__text">2 етап</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="in-work-slider__item">
-                                <picture>
-                                    <source type="image/webp" srcset="images/in-work-1.webp">
-                                    <img src="images/in-work-1.jpg" alt="в роботі" class="in-work-slider__img">
-                                </picture>
-                                <div class="in-work-slider__item-content">
-                                    <h5 class="h5-style in-work-slider__title">Квартира ЖК Мед</h5>
-                                    <p class="text-18 in-work-slider__text">1 етап</p>
+                                <div class="in-work-slider__item">
+                                    <picture>
+                                        <source type="image/webp" srcset="images/in-work-1.webp">
+                                        <img src="images/in-work-1.jpg" alt="в роботі" class="in-work-slider__img">
+                                    </picture>
+                                    <div class="in-work-slider__item-content">
+                                        <h5 class="h5-style in-work-slider__title">Квартира ЖК Мед</h5>
+                                        <p class="text-18 in-work-slider__text">1 етап</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="in-work-slider__item">
-                                <picture>
-                                    <source type="image/webp" srcset="images/in-work-2.webp">
-                                    <img src="images/in-work-2.jpg" alt="в роботі" class="in-work-slider__img">
-                                </picture>
-                                <div class="in-work-slider__item-content">
-                                    <h5 class="h5-style in-work-slider__title">Квартира ЖК Мед</h5>
-                                    <p class="text-18 in-work-slider__text">3 етап</p>
+                                <div class="in-work-slider__item">
+                                    <picture>
+                                        <source type="image/webp" srcset="images/in-work-2.webp">
+                                        <img src="images/in-work-2.jpg" alt="в роботі" class="in-work-slider__img">
+                                    </picture>
+                                    <div class="in-work-slider__item-content">
+                                        <h5 class="h5-style in-work-slider__title">Квартира ЖК Мед</h5>
+                                        <p class="text-18 in-work-slider__text">3 етап</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="in-work-slider__btn-box" data-slider="anim">
-                    <div class="in-work-slider__arrows">
-                        <button data-arrow="left" class="in-work-slider__arrow in-work-slider__arrow--left">
-                            <svg class="in-work-slider__arrow-img" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.292893 7.29289C-0.0976314 7.68342 -0.0976315 8.31658 0.292892 8.7071L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34314C8.46159 1.95262 8.46159 1.31946 8.07107 0.928931C7.68054 0.538407 7.04738 0.538407 6.65686 0.928931L0.292893 7.29289ZM21 7L1 7L1 9L21 9L21 7Z" fill="#3D4A39"/>
-                            </svg>
-                        </button>
-                        <button data-arrow="right" class="in-work-slider__arrow in-work-slider__arrow--right">
-                            <svg class="in-work-slider__arrow-img" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20.7071 8.70711C21.0976 8.31658 21.0976 7.68342 20.7071 7.29289L14.3431 0.928932C13.9526 0.538408 13.3195 0.538408 12.9289 0.928932C12.5384 1.31946 12.5384 1.95262 12.9289 2.34315L18.5858 8L12.9289 13.6569C12.5384 14.0474 12.5384 14.6805 12.9289 15.0711C13.3195 15.4616 13.9526 15.4616 14.3431 15.0711L20.7071 8.70711ZM0 9H20V7H0V9Z" fill="#3D4A39"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="in-work-slider__dots" data-slider="dots-box">
+                    <div class="in-work-slider__btn-box" data-slider="anim">
+                        <div class="in-work-slider__arrows">
+                            <button data-arrow="left" class="in-work-slider__arrow in-work-slider__arrow--left">
+                                <svg class="in-work-slider__arrow-img" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.292893 7.29289C-0.0976314 7.68342 -0.0976315 8.31658 0.292892 8.7071L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34314C8.46159 1.95262 8.46159 1.31946 8.07107 0.928931C7.68054 0.538407 7.04738 0.538407 6.65686 0.928931L0.292893 7.29289ZM21 7L1 7L1 9L21 9L21 7Z" fill="#3D4A39"/>
+                                </svg>
+                            </button>
+                            <button data-arrow="right" class="in-work-slider__arrow in-work-slider__arrow--right">
+                                <svg class="in-work-slider__arrow-img" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.7071 8.70711C21.0976 8.31658 21.0976 7.68342 20.7071 7.29289L14.3431 0.928932C13.9526 0.538408 13.3195 0.538408 12.9289 0.928932C12.5384 1.31946 12.5384 1.95262 12.9289 2.34315L18.5858 8L12.9289 13.6569C12.5384 14.0474 12.5384 14.6805 12.9289 15.0711C13.3195 15.4616 13.9526 15.4616 14.3431 15.0711L20.7071 8.70711ZM0 9H20V7H0V9Z" fill="#3D4A39"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="in-work-slider__dots" data-slider="dots-box">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -511,8 +515,10 @@
                 <div class="form-change questions__change" data-form="change">
                     <p class="form-text questions__text text-16">Отримай безкоштовну консультацію менеджера та прорахунок проекту </p>
                     <form class="discuss__form form" data-form="thank">
-                        <input type="text" class="form-input questions__input text-16" placeholder="Ім'я">
-                        <input type="tel" class="form-input questions__input questions__input--2 text-16" placeholder="Номер телефону">
+                        <label class="visually-hidden" for="name-2">Ім'я</label>
+                        <input id="name-2" type="text" class="form-input questions__input text-16" placeholder="Ім'я">
+                        <label class="visually-hidden" for="tel-2">Номер телефону</label>
+                        <input id="tel-2" type="tel" class="form-input questions__input questions__input--2 text-16" placeholder="Номер телефону">
                         <button class="form-btn questions__btn btn" type="submit">Відправити</button>
                         <label class="form-checkbox-label questions__checkbox-label">
                             <input type="checkbox" class="form-style form-checkbox questions__checkbox" checked>
@@ -652,9 +658,12 @@
             <h4 class="modal__title">Хочете отримати подарунок?</h4>
             <p class="modal__text form-text text-16">Заповніть форму,  і ми звяжемося та розповімо про умови акції</p>
             <form class="modal__form">
-                <input type="text" class="form-input modal__input text-16 modal__input--1" placeholder="Ім'я">
-                <input type="tel" class="form-input modal__input  text-16 modal__input--2" placeholder="Номер телефону">
-                <textarea class="modal__textarea form-input modal__input text-16 modal__input--3" placeholder="Тема"></textarea>
+                <label class="visually-hidden" for="name-modal">Ім'я</label>
+                <input id="name-modal" type="text" class="form-input modal__input text-16 modal__input--1" placeholder="Ім'я">
+                <label class="visually-hidden" for="tel-modal">Номер телефону</label>
+                <input id="tel-modal" type="tel" class="form-input modal__input  text-16 modal__input--2" placeholder="Номер телефону">
+                <label id="textarea-label" class="visually-hidden" for="textarea-modal">Тема</label>
+                <textarea id="textarea-modal" class="modal__textarea form-input modal__input text-16 modal__input--3" placeholder="Тема"></textarea>
                 <button type="submit" class="modal__btn btn dark-btn">Відправити</button>
                 <label class="form-checkbox-label modal__checkbox-label">
                     <input type="checkbox" class="form-style form-checkbox modal__checkbox" checked>
