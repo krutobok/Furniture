@@ -69,7 +69,6 @@ function slider(sliderContent) {
     const slider = document.querySelector(sliderContent)
     const sliderInner = slider.closest('[data-slider="wrapper"]')
     const parentBlock = slider.closest('[data-slider="parent-block"]')
-    sliderInner.style.transition = 'transform .5s'
     let items = slider.children
     let width = window.getComputedStyle(items[0]).getPropertyValue('width')
     width = parseInt(width.substring(0, width.length-2))
